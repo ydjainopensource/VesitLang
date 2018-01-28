@@ -8,13 +8,13 @@ graph  {
 bfs a {
     bfsQueuedNodeColor=khaki
     bfsQueuedNodeShape=square
-    bfsOutImageDir=images/
+    bfsOutImageDir=imagesBfs/
     bfsPptName=c.pdf
 }
 dfs a {
     dfsStackNodeColor=khaki
     dfsStackNodeShape=square
-    dfsOutImageDir=images/
+    dfsOutImageDir=imagesDfs/
     dfsPptName=d.pdf
 }
 

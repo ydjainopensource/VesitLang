@@ -7,9 +7,11 @@ graph  {
  }
 bfs a {
     bfsPptName=a.pdf
+    bfsOutImageDir=imageBfs/
 }
 dfs a {
     dfsPptName=b.pdf
+    dfsOutImageDir=imageDfs/
 }
 
 
