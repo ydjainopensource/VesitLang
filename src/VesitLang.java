@@ -147,8 +147,7 @@ public class VesitLang {
      */
 
     public static void traversal(EvalListener elistener){
-//        BfsConfig.resetBfsConfig();
-//        DfsConfig.resetDfsConfig();
+
 
         if(elistener.isBfs()){
 //            System.err.println("call bfs");

@@ -1,88 +1,87 @@
 public class BfsConfig {
-    private static String queuedNodeColor = "aquamarine";
-    private static String visitedNodeColor = "grey60";
-    private static String currentNodeColor = "red";
-    private static String currentNodeShape = "Mdiamond";
+    private String visitedNodeColor = "grey60";
+    private String queuedNodeColor = "aquamarine";
+    private String currentNodeColor = "red";
+    private String currentNodeShape = "Mdiamond";
+    private String queuedNodeShape = "doublecircle";
+    private String visitedNodeShape = "doubleoctagon";
+    private String dpi = "100";
+    private String outImageDir = "imagesBfs/";
+    private String pptName = "bfs.pdf";
 
-    public static String getQueuedNodeColor() {
-        return queuedNodeColor;
-    }
-
-    public static void setQueuedNodeColor(String queuedNodeColor) {
-        BfsConfig.queuedNodeColor = queuedNodeColor;
-    }
-
-    public static String getVisitedNodeColor() {
+    public String getVisitedNodeColor() {
         return visitedNodeColor;
     }
 
-    public static void setVisitedNodeColor(String visitedNodeColor) {
-        BfsConfig.visitedNodeColor = visitedNodeColor;
+    public void setVisitedNodeColor(String visitedNodeColor) {
+        this.visitedNodeColor = visitedNodeColor;
     }
 
-    public static String getCurrentNodeColor() {
+    public String getQueuedNodeColor() {
+        return queuedNodeColor;
+    }
+
+    public void setQueuedNodeColor(String queuedNodeColor) {
+        this.queuedNodeColor = queuedNodeColor;
+    }
+
+    public String getCurrentNodeColor() {
         return currentNodeColor;
     }
 
-    public static void setCurrentNodeColor(String currentNodeColor) {
-        BfsConfig.currentNodeColor = currentNodeColor;
+    public void setCurrentNodeColor(String currentNodeColor) {
+        this.currentNodeColor = currentNodeColor;
     }
 
-    public static String getCurrentNodeShape() {
+    public String getCurrentNodeShape() {
         return currentNodeShape;
     }
 
-    public static void setCurrentNodeShape(String currentNodeShape) {
-        BfsConfig.currentNodeShape = currentNodeShape;
+    public void setCurrentNodeShape(String currentNodeShape) {
+        this.currentNodeShape = currentNodeShape;
     }
 
-    public static String getQueuedNodeShape() {
+    public String getQueuedNodeShape() {
         return queuedNodeShape;
     }
 
-    public static void setQueuedNodeShape(String queuedNodeShape) {
-        BfsConfig.queuedNodeShape = queuedNodeShape;
+    public void setQueuedNodeShape(String queuedNodeShape) {
+        this.queuedNodeShape = queuedNodeShape;
     }
 
-    public static String getVisitedNodeShape() {
+    public String getVisitedNodeShape() {
         return visitedNodeShape;
     }
 
-    public static void setVisitedNodeShape(String visitedNodeShape) {
-        BfsConfig.visitedNodeShape = visitedNodeShape;
+    public void setVisitedNodeShape(String visitedNodeShape) {
+        this.visitedNodeShape = visitedNodeShape;
     }
 
-    public static String getDpi() {
+    public String getDpi() {
         return dpi;
     }
 
-    public static void setDpi(String dpi) {
-        BfsConfig.dpi = dpi;
+    public void setDpi(String dpi) {
+        this.dpi = dpi;
     }
 
-    public static String getOutImageDir() {
+    public String getOutImageDir() {
         return outImageDir;
     }
 
-    public static void setOutImageDir(String outImageDir) {
-        BfsConfig.outImageDir = outImageDir;
+    public void setOutImageDir(String outImageDir) {
+        this.outImageDir = outImageDir;
     }
 
-    public static String getPptName() {
+    public String getPptName() {
         return pptName;
     }
 
-    public static void setPptName(String pptName) {
-        BfsConfig.pptName = pptName;
+    public void setPptName(String pptName) {
+        this.pptName = pptName;
     }
 
-    private static String queuedNodeShape = "doublecircle";
-    private static String visitedNodeShape = "doubleoctagon";
-    private static String dpi = "100";
-    private static String outImageDir = "imagesBfs/";
-    private static String pptName = "bfs.pdf";
-
-    public static void resetBfsConfig() {
+    public void resetBfsConfig() {
         queuedNodeShape = "doublecircle";
         visitedNodeShape = "doubleoctagon";
         dpi = "100";

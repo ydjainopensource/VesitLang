@@ -114,87 +114,87 @@ public class EvalListener extends VesitLangBaseListener {
 
     @Override
     public void enterBfsQueuedNodeColor(VesitLangParser.BfsQueuedNodeColorContext ctx) {
-        BfsConfig.setQueuedNodeColor(ctx.STRING().toString());
+        bfsConfig.setQueuedNodeColor(ctx.STRING().toString());
     }
 
     @Override
     public void enterBfsQueuedNodeShape(VesitLangParser.BfsQueuedNodeShapeContext ctx) {
-        BfsConfig.setQueuedNodeShape(ctx.STRING().toString());
+        bfsConfig.setQueuedNodeShape(ctx.STRING().toString());
     }
 
     @Override
     public void enterBfsVisitedNodeColor(VesitLangParser.BfsVisitedNodeColorContext ctx) {
-        BfsConfig.setVisitedNodeColor(ctx.STRING().toString());
+        bfsConfig.setVisitedNodeColor(ctx.STRING().toString());
     }
 
     @Override
     public void enterBfsCurrentNodeColor(VesitLangParser.BfsCurrentNodeColorContext ctx) {
-        BfsConfig.setCurrentNodeColor(ctx.STRING().toString());
+        bfsConfig.setCurrentNodeColor(ctx.STRING().toString());
     }
 
     @Override
     public void enterBfsCurrentNodeShape(VesitLangParser.BfsCurrentNodeShapeContext ctx) {
-        BfsConfig.setCurrentNodeShape(ctx.STRING().toString());
+        bfsConfig.setCurrentNodeShape(ctx.STRING().toString());
     }
 
 
     @Override
     public void enterBfsVisitedNodeShape(VesitLangParser.BfsVisitedNodeShapeContext ctx) {
-        BfsConfig.setVisitedNodeShape(ctx.STRING().toString());
+        bfsConfig.setVisitedNodeShape(ctx.STRING().toString());
     }
 
     @Override
     public void enterBfsDpi(VesitLangParser.BfsDpiContext ctx) {
-        BfsConfig.setDpi(ctx.STRING().toString());
+        bfsConfig.setDpi(ctx.STRING().toString());
     }
 
     @Override
     public void enterBfsOutImageDir(VesitLangParser.BfsOutImageDirContext ctx) {
-        BfsConfig.setOutImageDir(ctx.PATH().toString());
+        bfsConfig.setOutImageDir(ctx.PATH().toString());
     }
 
     @Override
     public void enterDfsStackNodeColor(VesitLangParser.DfsStackNodeColorContext ctx) {
-        DfsConfig.setStackNodeColor(ctx.STRING().toString());
+        dfsConfig.setStackNodeColor(ctx.STRING().toString());
     }
 
     @Override
     public void enterDfsStackNodeShape(VesitLangParser.DfsStackNodeShapeContext ctx) {
-        DfsConfig.setStackNodeShape(ctx.STRING().toString());
+        dfsConfig.setStackNodeShape(ctx.STRING().toString());
     }
 
     @Override
     public void enterDfsVisitedNodeColor(VesitLangParser.DfsVisitedNodeColorContext ctx) {
-        DfsConfig.setVisitedNodeColor(ctx.STRING().toString());
+        dfsConfig.setVisitedNodeColor(ctx.STRING().toString());
     }
 
     @Override
     public void enterDfsVisitedNodeShape(VesitLangParser.DfsVisitedNodeShapeContext ctx) {
-        DfsConfig.setVisitedNodeShape(ctx.STRING().toString());
+        dfsConfig.setVisitedNodeShape(ctx.STRING().toString());
     }
 
     @Override
     public void enterDfsDpi(VesitLangParser.DfsDpiContext ctx) {
-        DfsConfig.setDpi(ctx.STRING().toString());
+        dfsConfig.setDpi(ctx.STRING().toString());
     }
 
     @Override
     public void enterDfsOutImageDir(VesitLangParser.DfsOutImageDirContext ctx) {
-        DfsConfig.setOutImageDir(ctx.PATH().toString());
+        dfsConfig.setOutImageDir(ctx.PATH().toString());
     }
 
     @Override
     public void enterDfsPptName(VesitLangParser.DfsPptNameContext ctx) {
         String filename = ctx.STRING().get(0).toString() +"." + ctx.STRING().get(1).toString();
         System.err.println("setting DFS PPT name to " + filename);
-        DfsConfig.setPptName(filename);
+        dfsConfig.setPptName(filename);
 
     }
 
     @Override
     public void enterBfsPptName(VesitLangParser.BfsPptNameContext ctx) {
         System.err.println("bfs ppt name : " + ctx.STRING().get(0).toString() +"." + ctx.STRING().get(1).toString() );
-        BfsConfig.setPptName(ctx.STRING().get(0).toString() +"." + ctx.STRING().get(1).toString());
+        bfsConfig.setPptName(ctx.STRING().get(0).toString() +"." + ctx.STRING().get(1).toString());
     }
 
     @Override

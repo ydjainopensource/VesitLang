@@ -22,13 +22,13 @@ public class DFS {
     }
 
     public static void loadDfsConfig(DfsConfig dc){
-        setStackNodeColor(DfsConfig.getStackNodeColor());
-        setStackNodeShape(DfsConfig.getStackNodeShape());
-        setVisitedNodeColor(DfsConfig.getVisitedNodeColor());
-        setVisitedNodeShape(DfsConfig.getVisitedNodeShape());
-        setDpi(DfsConfig.getDpi());
-        setOutImageDir(DfsConfig.getOutImageDir());
-        setPptName(DfsConfig.getPptName());
+        setStackNodeColor(dc.getStackNodeColor());
+        setStackNodeShape(dc.getStackNodeShape());
+        setVisitedNodeColor(dc.getVisitedNodeColor());
+        setVisitedNodeShape(dc.getVisitedNodeShape());
+        setDpi(dc.getDpi());
+        setOutImageDir(dc.getOutImageDir());
+        setPptName(dc.getPptName());
 
     }
 

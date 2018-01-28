@@ -21,15 +21,15 @@ public class BFS {
     private static int iterNumber = 0;
 
     public static void loadBfsConfig(BfsConfig bfsConfig){
-        setQueuedNodeColor(BfsConfig.getQueuedNodeColor());
-        setQueuedNodeShape(BfsConfig.getQueuedNodeShape());
-        setVisitedNodeColor(BfsConfig.getVisitedNodeColor());
-        setVisitedNodeShape(BfsConfig.getVisitedNodeShape());
-        setCurrentNodeColor(BfsConfig.getCurrentNodeColor());
-        setCurrentNodeShape(BfsConfig.getCurrentNodeShape());
-        setDpi(BfsConfig.getDpi());
-        setOutImageDir(BfsConfig.getOutImageDir());
-        setPptName(BfsConfig.getPptName());
+        setQueuedNodeColor(bfsConfig.getQueuedNodeColor());
+        setQueuedNodeShape(bfsConfig.getQueuedNodeShape());
+        setVisitedNodeColor(bfsConfig.getVisitedNodeColor());
+        setVisitedNodeShape(bfsConfig.getVisitedNodeShape());
+        setCurrentNodeColor(bfsConfig.getCurrentNodeColor());
+        setCurrentNodeShape(bfsConfig.getCurrentNodeShape());
+        setDpi(bfsConfig.getDpi());
+        setOutImageDir(bfsConfig.getOutImageDir());
+        setPptName(bfsConfig.getPptName());
 
     }
 

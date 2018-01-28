@@ -1,69 +1,70 @@
 public class DfsConfig {
-    private static String stackNodeColor = "aquamarine";
-    private static String stackNodeShape = "hexagon";
-    private static String visitedNodeColor = "grey60";
-    private static String visitedNodeShape = "doubleoctagon";
-    private static String dpi = "100";
-    private static String outImageDir = "imagesDfs/";
-    private static String pptName = "dfs.pdf";
+    private String stackNodeColor = "aquamarine";
+    private String stackNodeShape = "hexagon";
+    private String visitedNodeColor = "grey60";
+    private String visitedNodeShape = "doubleoctagon";
+    private String dpi = "100";
+    private String outImageDir = "imagesDfs/";
+    private String pptName = "dfs.pdf";
 
-    public static String getStackNodeColor() {
+
+    public String getStackNodeColor() {
         return stackNodeColor;
     }
 
-    public static void setStackNodeColor(String stackNodeColor) {
-        DfsConfig.stackNodeColor = stackNodeColor;
+    public void setStackNodeColor(String stackNodeColor) {
+        this.stackNodeColor = stackNodeColor;
     }
 
-    public static String getStackNodeShape() {
+    public String getStackNodeShape() {
         return stackNodeShape;
     }
 
-    public static void setStackNodeShape(String stackNodeShape) {
-        DfsConfig.stackNodeShape = stackNodeShape;
+    public void setStackNodeShape(String stackNodeShape) {
+        this.stackNodeShape = stackNodeShape;
     }
 
-    public static String getVisitedNodeColor() {
+    public String getVisitedNodeColor() {
         return visitedNodeColor;
     }
 
-    public static void setVisitedNodeColor(String visitedNodeColor) {
-        DfsConfig.visitedNodeColor = visitedNodeColor;
+    public void setVisitedNodeColor(String visitedNodeColor) {
+        this.visitedNodeColor = visitedNodeColor;
     }
 
-    public static String getVisitedNodeShape() {
+    public String getVisitedNodeShape() {
         return visitedNodeShape;
     }
 
-    public static void setVisitedNodeShape(String visitedNodeShape) {
-        DfsConfig.visitedNodeShape = visitedNodeShape;
+    public void setVisitedNodeShape(String visitedNodeShape) {
+        this.visitedNodeShape = visitedNodeShape;
     }
 
-    public static String getDpi() {
+    public String getDpi() {
         return dpi;
     }
 
-    public static void setDpi(String dpi) {
-        DfsConfig.dpi = dpi;
+    public void setDpi(String dpi) {
+        this.dpi = dpi;
     }
 
-    public static String getOutImageDir() {
+    public String getOutImageDir() {
         return outImageDir;
     }
 
-    public static void setOutImageDir(String outImageDir) {
-        DfsConfig.outImageDir = outImageDir;
+    public void setOutImageDir(String outImageDir) {
+        this.outImageDir = outImageDir;
     }
 
-    public static String getPptName() {
+    public String getPptName() {
         return pptName;
     }
 
-    public static void setPptName(String pptName) {
-        DfsConfig.pptName = pptName;
+    public void setPptName(String pptName) {
+        this.pptName = pptName;
     }
 
-    public static void resetDfsConfig(){
+    public void resetDfsConfig(){
         stackNodeColor = "aquamarine";
         stackNodeShape = "hexagon";
         visitedNodeColor = "grey60";
