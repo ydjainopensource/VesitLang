@@ -6,13 +6,9 @@ graph  {
     from e to f
  }
 bfs a {
-    bfsQueuedNodeColor=khaki
-    bfsQueuedNodeShape=square
     bfsPptName=a.pdf
 }
 dfs a {
-    dfsStackNodeColor=khaki
-    dfsStackNodeShape=square
     dfsPptName=b.pdf
 }
 

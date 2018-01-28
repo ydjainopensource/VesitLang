@@ -1,0 +1,43 @@
+Started Processing file : infile
+enterEveryRule graph{fromatobfromatocfromatodfromdtoefrometof}bfsa{bfsQueuedNodeColor=khakibfsQueuedNodeShape=squarebfsPptName=a.pdf}dfsa{dfsStackNodeColor=khakidfsStackNodeShape=squaredfsPptName=b.pdf}
+in enter graph
+enterEveryRule fromatobfromatocfromatodfromdtoefrometof
+enterEveryRule fromatob
+enterEveryRule a
+enterEveryRule b
+inside exit edge 
+enterEveryRule fromatoc
+enterEveryRule a
+enterEveryRule c
+inside exit edge 
+enterEveryRule fromatod
+enterEveryRule a
+enterEveryRule d
+inside exit edge 
+enterEveryRule fromdtoe
+enterEveryRule d
+enterEveryRule e
+inside exit edge 
+enterEveryRule frometof
+enterEveryRule e
+enterEveryRule f
+inside exit edge 
+enterEveryRule bfsa{bfsQueuedNodeColor=khakibfsQueuedNodeShape=squarebfsPptName=a.pdf}
+exit bfs
+enterEveryRule bfsQueuedNodeColor=khaki
+enterEveryRule bfsQueuedNodeColor=khaki
+enterEveryRule bfsQueuedNodeShape=square
+enterEveryRule bfsQueuedNodeShape=square
+enterEveryRule bfsPptName=a.pdf
+enterEveryRule bfsPptName=a.pdf
+bfs ppt name : a.pdf
+enterEveryRule dfsa{dfsStackNodeColor=khakidfsStackNodeShape=squaredfsPptName=b.pdf}
+enterEveryRule dfsStackNodeColor=khaki
+enterEveryRule dfsStackNodeColor=khaki
+enterEveryRule dfsStackNodeShape=square
+enterEveryRule dfsStackNodeShape=square
+enterEveryRule dfsPptName=b.pdf
+enterEveryRule dfsPptName=b.pdf
+setting DFS PPT name to b.pdf
+call bfs
+Proccessed File : infile
