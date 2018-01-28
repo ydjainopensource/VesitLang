@@ -28,12 +28,6 @@ public interface VesitLangVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitGraph(VesitLangParser.GraphContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link VesitLangParser#digraph}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitDigraph(VesitLangParser.DigraphContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link VesitLangParser#bfsproperties}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

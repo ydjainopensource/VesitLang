@@ -1,17 +1,10 @@
-graph  {
-    from a to b
-    from a to c
+graph {
+    from a to b cost 0
+    from a to c cost 2
     from a to d
     from d to e
     from e to f
- }
-bfs a {
-    bfsPptName=a.pdf
-    bfsOutImageDir=imageBfs/
+    from x to z
+    from x to x
 }
-dfs a {
-    dfsPptName=b.pdf
-    dfsOutImageDir=imageDfs/
-}
-
 

@@ -34,7 +34,7 @@ WS=31
 '}'=3
 'dfs'=4
 'graph'=5
-'digraph'=6
+'cost'=6
 'dfsStackNodeColor'=7
 '='=8
 'dfsStackNodeShape'=9

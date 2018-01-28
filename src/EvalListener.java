@@ -72,6 +72,12 @@ public class EvalListener extends VesitLangBaseListener {
         Node from = new Node(ctx.from().STRING().toString());
         Node to = new Node(ctx.to().STRING().toString());
         Edge edge = new Edge(from,to);
+        if(ctx.INT() != null) {
+            edge.addAttribute(new Attribute("label",ctx.INT().toString()));
+            edge.addAttribute(new Attribute("fontsize","12"));
+            edge.setWeight(new Integer(ctx.INT().toString()));
+            System.err.println("edge weight "+ edge.getWeight());
+        }
         if(!nodes.contains(from)) {
             graph.addNode(from);
             nodes.add(from);
@@ -89,7 +95,7 @@ public class EvalListener extends VesitLangBaseListener {
     @Override
     public void enterGraph(VesitLangParser.GraphContext ctx) {
         System.out.println("in enter graph" );
-        graph = new Graph("g1", GraphType.GRPAH);
+        graph = new Graph("g1", GraphType.DIGRAPH);
     }
 
     public Node getDfsStartNode() {
@@ -218,11 +224,6 @@ public class EvalListener extends VesitLangBaseListener {
             if (n.getId().equals(getBfsNodeName()))
                 setBfsStartNode(n);
         }
-    }
-
-    @Override
-    public void enterDigraph(VesitLangParser.DigraphContext ctx) {
-        graph = new Graph("g1", GraphType.DIGRAPH);
     }
 
     @Override

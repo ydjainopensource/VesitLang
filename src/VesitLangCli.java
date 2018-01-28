@@ -20,7 +20,7 @@ public class VesitLangCli {
 
     public static void main(String args[]) throws Exception{
 
-        String[] aargs = {"-v","infile","infile2" };
+        String[] aargs = {"-v","infile" };
 
         // Initialize picocli
         VesitLangCli vesitLangCli = CommandLine.populateCommand(new VesitLangCli(), aargs);

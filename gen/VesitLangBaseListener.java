@@ -51,18 +51,6 @@ public class VesitLangBaseListener implements VesitLangListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDigraph(VesitLangParser.DigraphContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitDigraph(VesitLangParser.DigraphContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterBfsproperties(VesitLangParser.BfspropertiesContext ctx) { }
 	/**
 	 * {@inheritDoc}

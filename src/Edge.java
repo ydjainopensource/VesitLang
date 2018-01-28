@@ -6,6 +6,15 @@
 public class Edge extends BaseGraphObject implements Comparable {
     private Node fromNode;
     private Node toNode;
+    private Integer weight =0;
+
+    public Integer getWeight() {
+        return weight;
+    }
+
+    public void setWeight(Integer weight) {
+        this.weight = weight;
+    }
 
     @Override
     public int compareTo(Object o) {

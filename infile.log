@@ -1,12 +1,12 @@
 Started Processing file : infile
-enterEveryRule graph{fromatobfromatocfromatodfromdtoefrometof}bfsa{bfsPptName=a.pdfbfsOutImageDir=imageBfs/}dfsa{dfsPptName=b.pdfdfsOutImageDir=imageDfs/}
+enterEveryRule graph{fromatobcost0fromatoccost2fromatodfromdtoefrometoffromxtozfromxtox}
 in enter graph
-enterEveryRule fromatobfromatocfromatodfromdtoefrometof
-enterEveryRule fromatob
+enterEveryRule fromatobcost0fromatoccost2fromatodfromdtoefrometoffromxtozfromxtox
+enterEveryRule fromatobcost0
 enterEveryRule a
 enterEveryRule b
 inside exit edge 
-enterEveryRule fromatoc
+enterEveryRule fromatoccost2
 enterEveryRule a
 enterEveryRule c
 inside exit edge 
@@ -22,18 +22,13 @@ enterEveryRule frometof
 enterEveryRule e
 enterEveryRule f
 inside exit edge 
-enterEveryRule bfsa{bfsPptName=a.pdfbfsOutImageDir=imageBfs/}
-exit bfs
-enterEveryRule bfsPptName=a.pdf
-enterEveryRule bfsPptName=a.pdf
-bfs ppt name : a.pdf
-enterEveryRule bfsOutImageDir=imageBfs/
-enterEveryRule bfsOutImageDir=imageBfs/
-enterEveryRule dfsa{dfsPptName=b.pdfdfsOutImageDir=imageDfs/}
-enterEveryRule dfsPptName=b.pdf
-enterEveryRule dfsPptName=b.pdf
-setting DFS PPT name to b.pdf
-enterEveryRule dfsOutImageDir=imageDfs/
-enterEveryRule dfsOutImageDir=imageDfs/
-call bfs
+enterEveryRule fromxtoz
+enterEveryRule x
+enterEveryRule z
+inside exit edge 
+enterEveryRule fromxtox
+enterEveryRule x
+enterEveryRule x
+inside exit edge 
+Default location is imagesDfs/0.png , dfs.pdf
 Proccessed File : infile

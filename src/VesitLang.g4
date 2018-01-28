@@ -18,12 +18,12 @@ graph : 'graph' '{' edges '}' bfs
         |'graph' '{' edges '}' dfs bfs
         | 'graph' '{' edges '}'
         ;
-digraph : 'digraph' '{' edges '}' bfs
-        | 'digraph' '{' edges '}' dfs
-        | 'digraph' '{' edges '}' bfs dfs
-        | 'digraph' '{' edges '}' dfs bfs
-        | 'digraph' '{' edges '}'
-        ;
+//digraph : 'digraph' '{' edges '}' bfs
+//        | 'digraph' '{' edges '}' dfs
+//        | 'digraph' '{' edges '}' bfs dfs
+//        | 'digraph' '{' edges '}' dfs bfs
+//        | 'digraph' '{' edges '}'
+//        ;
 
 
 bfsproperties : bfsQueuedNodeColor
@@ -48,7 +48,8 @@ dfsproperties : dfsStackNodeColor
 
 edges : edge+
       ;
-edge  : FROM from TO to
+edge  : FROM from TO to 'cost' INT
+      | FROM from TO to
       ;
 
 from : STRING

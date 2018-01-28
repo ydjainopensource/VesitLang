@@ -37,16 +37,6 @@ public interface VesitLangListener extends ParseTreeListener {
 	 */
 	void exitGraph(VesitLangParser.GraphContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link VesitLangParser#digraph}.
-	 * @param ctx the parse tree
-	 */
-	void enterDigraph(VesitLangParser.DigraphContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link VesitLangParser#digraph}.
-	 * @param ctx the parse tree
-	 */
-	void exitDigraph(VesitLangParser.DigraphContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link VesitLangParser#bfsproperties}.
 	 * @param ctx the parse tree
 	 */
