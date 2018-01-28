@@ -1,0 +1,21 @@
+graph  {
+    from a to b
+    from a to c
+    from a to d
+    from d to e
+    from e to f
+ }
+bfs a {
+    bfsQueuedNodeColor=khaki
+    bfsQueuedNodeShape=square
+    bfsOutImageDir=images/
+    bfsPptName=c.pdf
+}
+dfs a {
+    dfsStackNodeColor=khaki
+    dfsStackNodeShape=square
+
+    dfsPptName=d.pdf
+}
+
+
