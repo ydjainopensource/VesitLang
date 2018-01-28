@@ -8,6 +8,7 @@ public class BfsConfig {
     private String dpi = "100";
     private String outImageDir = "imagesBfs/";
     private String pptName = "bfs.pdf";
+    private int iterNumber =0;
 
     public String getVisitedNodeColor() {
         return visitedNodeColor;
@@ -81,6 +82,14 @@ public class BfsConfig {
         this.pptName = pptName;
     }
 
+    public int getIterNumber() {
+        return iterNumber;
+    }
+
+    public void setIterNumber(int iterNumber) {
+        this.iterNumber = iterNumber;
+    }
+
     public void resetBfsConfig() {
         queuedNodeShape = "doublecircle";
         visitedNodeShape = "doubleoctagon";
@@ -91,5 +100,7 @@ public class BfsConfig {
         visitedNodeColor = "grey60";
         currentNodeColor = "red";
         currentNodeShape = "Mdiamond";
+        iterNumber=0;
+
     }
 }

@@ -6,6 +6,7 @@ public class DfsConfig {
     private String dpi = "100";
     private String outImageDir = "imagesDfs/";
     private String pptName = "dfs.pdf";
+    private int iterNumber=0;
 
 
     public String getStackNodeColor() {
@@ -64,6 +65,14 @@ public class DfsConfig {
         this.pptName = pptName;
     }
 
+    public int getIterNumber() {
+        return iterNumber;
+    }
+
+    public void setIterNumber(int iterNumber) {
+        this.iterNumber = iterNumber;
+    }
+
     public void resetDfsConfig(){
         stackNodeColor = "aquamarine";
         stackNodeShape = "hexagon";
@@ -72,5 +81,7 @@ public class DfsConfig {
         dpi = "100";
         outImageDir = "imagesDfs/";
         pptName = "dfs.pdf";
+        iterNumber =0;
+
     }
 }

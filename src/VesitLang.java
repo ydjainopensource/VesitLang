@@ -148,19 +148,22 @@ public class VesitLang {
 
     public static void traversal(EvalListener elistener){
 
-
+//        DFS.
         if(elistener.isBfs()){
-//            System.err.println("call bfs");
-            BFS.loadBfsConfig(elistener.getBfsConfig());
-            BFS.bfs(elistener.getGraph(),elistener.getBfsStartNode());
+            System.out.println("call bfs");
+
+            BFS bfs = new BFS();
+            bfs.loadBfsConfig(elistener.getBfsConfig());
+            bfs.bfs(elistener.getGraph(),elistener.getBfsStartNode());
         }
         if(elistener.isDfs()){
 //            System.err.println("call dfs");
-            DFS.loadDfsConfig(elistener.getDfsConfig());
-            DFS.dfs(elistener.getGraph(),elistener.getDfsStartNode());
+            DFS dfs = new DFS();
+            dfs.loadDfsConfig(elistener.getDfsConfig());
+            dfs.dfs(elistener.getGraph(),elistener.getDfsStartNode());
         }
         if(!(elistener.isBfs() || elistener.isDfs())){
-            System.err.println("Default location is imagesDfs/0.png , dfs.pdf");
+            System.out.println("Default location is imagesDfs/0.png , dfs.pdf");
 
             try{
                 Graphviz gv = new Graphviz();
@@ -168,6 +171,7 @@ public class VesitLang {
                 File outFile = new File("image.png");
                 VesitLang.writeGraphToFile(graphByteArray, outFile);
             }catch (Exception ec){
+                ec.printStackTrace();
                 System.err.println(ec.toString());
                 System.err.println("Error while generating image");
                 System.err.println("Aborting");

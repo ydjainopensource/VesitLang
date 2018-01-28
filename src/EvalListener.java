@@ -68,7 +68,7 @@ public class EvalListener extends VesitLangBaseListener {
 
     @Override
     public void exitEdge(VesitLangParser.EdgeContext ctx) {
-        System.err.println("inside exit edge ");
+        System.out.println("inside exit edge ");
         Node from = new Node(ctx.from().STRING().toString());
         Node to = new Node(ctx.to().STRING().toString());
         Edge edge = new Edge(from,to);
@@ -88,7 +88,7 @@ public class EvalListener extends VesitLangBaseListener {
 
     @Override
     public void enterGraph(VesitLangParser.GraphContext ctx) {
-        System.err.println("in enter graph" );
+        System.out.println("in enter graph" );
         graph = new Graph("g1", GraphType.GRPAH);
     }
 
@@ -186,21 +186,21 @@ public class EvalListener extends VesitLangBaseListener {
     @Override
     public void enterDfsPptName(VesitLangParser.DfsPptNameContext ctx) {
         String filename = ctx.STRING().get(0).toString() +"." + ctx.STRING().get(1).toString();
-        System.err.println("setting DFS PPT name to " + filename);
+        System.out.println("setting DFS PPT name to " + filename);
         dfsConfig.setPptName(filename);
 
     }
 
     @Override
     public void enterBfsPptName(VesitLangParser.BfsPptNameContext ctx) {
-        System.err.println("bfs ppt name : " + ctx.STRING().get(0).toString() +"." + ctx.STRING().get(1).toString() );
+        System.out.println("bfs ppt name : " + ctx.STRING().get(0).toString() +"." + ctx.STRING().get(1).toString() );
         bfsConfig.setPptName(ctx.STRING().get(0).toString() +"." + ctx.STRING().get(1).toString());
     }
 
     @Override
     public void enterEveryRule(ParserRuleContext ctx) {
         super.enterEveryRule(ctx);
-        System.err.println("enterEveryRule "+ctx.getRuleContext().getText());
+        System.out.println("enterEveryRule "+ctx.getRuleContext().getText());
     }
 
     public BfsConfig getBfsConfig() {
@@ -209,7 +209,7 @@ public class EvalListener extends VesitLangBaseListener {
 
     @Override
     public void enterBfs(VesitLangParser.BfsContext ctx){
-        System.err.println("exit bfs");
+        System.out.println("exit bfs");
         String startNodeName;
         startNodeName = ctx.STRING().toString();
         setBfsNodeName(startNodeName);

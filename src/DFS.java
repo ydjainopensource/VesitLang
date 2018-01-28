@@ -5,111 +5,34 @@ import java.util.*;
 
 public class DFS {
 
-    private static Set<Node> visited = new HashSet<>();
-    private static DfsStack<Node> stack = new DfsStack<>();
-    private static Graphviz gv = new Graphviz();
-    private static String stackNodeColor = "aquamarine";
-    private static String stackNodeShape = "hexagon";
-    private static String visitedNodeColor = "grey60";
-    private static String visitedNodeShape = "doubleoctagon";
-    private static String dpi = "100";
-    private static String outImageDir = "imagesDfs/";
-    private static String pptName = "dfs.pdf";
-    private static int iterNumber = 0;
+    private Set<Node> visited = new HashSet<>();
+    private DfsStack<Node> stack = new DfsStack<>();
+    private Graphviz gv = new Graphviz();
 
-    public static void setIterNumber(int iterNumber) {
-        DFS.iterNumber = iterNumber;
+    private static DfsConfig dfsConfig = new DfsConfig();
+
+    public static void loadDfsConfig(DfsConfig dc) {
+        dfsConfig = dc;
     }
 
-    public static void loadDfsConfig(DfsConfig dc){
-        setStackNodeColor(dc.getStackNodeColor());
-        setStackNodeShape(dc.getStackNodeShape());
-        setVisitedNodeColor(dc.getVisitedNodeColor());
-        setVisitedNodeShape(dc.getVisitedNodeShape());
-        setDpi(dc.getDpi());
-        setOutImageDir(dc.getOutImageDir());
-        setPptName(dc.getPptName());
+    public void dfs(Graph graph, Node start) {
 
-    }
-
-
-    public static String getStackNodeColor() {
-        return stackNodeColor;
-    }
-
-    public static void setStackNodeColor(String stackNodeColor) {
-        DFS.stackNodeColor = stackNodeColor;
-    }
-
-    public static String getStackNodeShape() {
-        return stackNodeShape;
-    }
-
-    public static void setStackNodeShape(String stackNodeShape) {
-        DFS.stackNodeShape = stackNodeShape;
-    }
-
-    public static String getVisitedNodeColor() {
-        return visitedNodeColor;
-    }
-
-    public static void setVisitedNodeColor(String visitedNodeColor) {
-        DFS.visitedNodeColor = visitedNodeColor;
-    }
-
-    public static String getVisitedNodeShape() {
-        return visitedNodeShape;
-    }
-
-    public static void setVisitedNodeShape(String visitedNodeShape) {
-        DFS.visitedNodeShape = visitedNodeShape;
-    }
-
-    public static String getDpi() {
-        return dpi;
-    }
-
-    public static void setDpi(String dpi) {
-        DFS.dpi = dpi;
-    }
-
-    public static String getOutImageDir() {
-        return outImageDir;
-    }
-
-    public static void setOutImageDir(String outImageDir) {
-        DFS.outImageDir = outImageDir;
-    }
-
-    public static String getPptName() {
-        return pptName;
-    }
-
-    public static void setPptName(String pptName) {
-        DFS.pptName = pptName;
-    }
-
-    public static void dfs(@NotNull Graph graph,Node start) {
-
-        for (Node node: graph.getNodeList() ) {
+        for (Node node : graph.getNodeList()) {
             node.removeAllAttributes();
         }
 
-        dfsw(graph,start);
+        dfsw(graph, start);
     }
 
-    public static int getIterNumber() {
-        return iterNumber;
-    }
-
-    public static void genImageAndPpt(Graph graph) {
-        try{
-            byte[] graphByteArray = gv.getGraphByteArray(graph, "png", getDpi());
-            File outFile = new File(getOutImageDir() + "" + getIterNumber() + ".png");
+    public void genImageAndPpt(Graph graph) {
+        try {
+            byte[] graphByteArray = gv.getGraphByteArray(graph, "png", dfsConfig.getDpi());
+            File outFile = new File(dfsConfig.getOutImageDir() + "" + dfsConfig.getIterNumber() + ".png");
             VesitLang.writeGraphToFile(graphByteArray, outFile);
-            setIterNumber(getIterNumber()+1);
-            VesitLang.generatePdf(getIterNumber(),getOutImageDir(),getPptName());
-        }catch (Exception ec){
+            dfsConfig.setIterNumber(dfsConfig.getIterNumber() + 1);
+            VesitLang.generatePdf(dfsConfig.getIterNumber(), dfsConfig.getOutImageDir(), dfsConfig.getPptName());
+        } catch (Exception ec) {
+            ec.printStackTrace();
             System.err.println(ec.toString());
             System.err.println("Error while generating PPT");
             System.err.println("Aborting");
@@ -117,13 +40,12 @@ public class DFS {
     }
 
 
-
-    public static void dfsw(Graph graph, Node start){
+    public void dfsw(Graph graph, Node start) {
 
         stack.push(start);
-        start.addAttribute(new Attribute("shape", getStackNodeShape()));
+        start.addAttribute(new Attribute("shape", dfsConfig.getStackNodeShape()));
         start.addAttribute(new Attribute("style", "filled"));
-        start.addAttribute(new Attribute("color", getStackNodeColor()));
+        start.addAttribute(new Attribute("color", dfsConfig.getStackNodeColor()));
 
         genImageAndPpt(graph);
 
@@ -132,15 +54,15 @@ public class DFS {
             if (start.getId().equals(e.getFromNode().getId())) {
                 if (!visited.contains(toNode)) {
                     visited.add(toNode);
-                    dfsw(graph,toNode);
+                    dfsw(graph, toNode);
                 }
             }
         }
 
         start.removeAllAttributes();
-        start.addAttribute(new Attribute("shape", getVisitedNodeShape()));
+        start.addAttribute(new Attribute("shape", dfsConfig.getVisitedNodeShape()));
         start.addAttribute(new Attribute("style", "filled"));
-        start.addAttribute(new Attribute("color", getVisitedNodeColor()));
+        start.addAttribute(new Attribute("color", dfsConfig.getVisitedNodeColor()));
         genImageAndPpt(graph);
         stack.pop();
     }

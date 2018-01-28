@@ -14,7 +14,7 @@ bfs a {
 dfs a {
     dfsStackNodeColor=khaki
     dfsStackNodeShape=square
-
+    dfsOutImageDir=images/
     dfsPptName=d.pdf
 }
 
