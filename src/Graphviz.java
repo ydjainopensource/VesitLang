@@ -86,6 +86,7 @@ public class Graphviz {
         }
         dotString.append(graph.getId());
         dotString.append(graph.genDotString());
+//        System.out.println(dotString);
         return dotString.toString();
     }
 

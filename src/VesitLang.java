@@ -6,6 +6,7 @@ import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Image;
+import com.itextpdf.layout.element.List;
 import com.itextpdf.layout.property.HorizontalAlignment;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CommonTokenStream;
@@ -147,8 +148,15 @@ public class VesitLang {
      */
 
     public static void traversal(EvalListener elistener){
+        assert elistener.isKruskal() == true;
+        if(elistener.isKruskal()) {
+            Kruskal kruskal = new Kruskal();
+            kruskal.loadKruskalConfig(elistener.getKruskalConfig());
+            kruskal.setGraph(elistener.getGraph());
+            kruskal.mst();
+        }
 
-//        DFS.
+        //        DFS.
         if(elistener.isBfs()){
             System.out.println("call bfs");
 

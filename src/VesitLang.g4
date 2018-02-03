@@ -1,30 +1,20 @@
 grammar VesitLang;
 
-import DfsConfig , BfsConfig;
+import DfsConfig , BfsConfig,KruskalConfig;
 
 
-bfs : 'bfs' STRING '{' bfsproperties* '}'
-    | 'bfs' STRING
+bfs : BFS STRING '{' bfsproperties* '}'
+    | BFS STRING
     ;
 
 //dfstraversal : (('d'|'D')('F'|'f')('s'|'S')) STRING;
-dfs : 'dfs' STRING '{' dfsproperties* '}'
-    | 'dfs' STRING
+dfs : DFS STRING '{' dfsproperties* '}'
+    | DFS STRING
     ;
 
-graph : 'graph' '{' edges '}' bfs
-        |'graph' '{' edges '}' dfs
-        |'graph' '{' edges '}' bfs dfs
-        |'graph' '{' edges '}' dfs bfs
-        | 'graph' '{' edges '}'
+kruskal : KRUSKAL '{' kruskalproperties* '}'
+        | KRUSKAL
         ;
-//digraph : 'digraph' '{' edges '}' bfs
-//        | 'digraph' '{' edges '}' dfs
-//        | 'digraph' '{' edges '}' bfs dfs
-//        | 'digraph' '{' edges '}' dfs bfs
-//        | 'digraph' '{' edges '}'
-//        ;
-
 
 bfsproperties : bfsQueuedNodeColor
               | bfsVisitedNodeColor
@@ -35,6 +25,16 @@ bfsproperties : bfsQueuedNodeColor
               | bfsDpi
               | bfsOutImageDir
               | bfsPptName
+                ;
+
+
+kruskalproperties : kruskalVisitedNodeColor
+              | kruskalCurrentNodeColor
+              | kruskalCurrentNodeShape
+              | kruskalVisitedNodeShape
+              | kruskalDpi
+              | kruskalOutImageDir
+              | kruskalPptName
                 ;
 
 dfsproperties : dfsStackNodeColor
@@ -57,6 +57,38 @@ from : STRING
 to  : STRING
    ;
 
+
+expression  : graph EOF
+//            | graph kruskal EOF
+            ;
+
+graph :   GRAPH '{' edges '}' action_list
+//        | GRAPH '{' edges '}' dfs
+//        | GRAPH '{' edges '}' bfs dfs
+//        | GRAPH '{' edges '}' dfs bfs
+//        | GRAPH '{' edges '}' action*
+        | GRAPH '{' edges '}'
+        ;
+
+action_list : action action_list
+            | action // action_list
+            ;
+
+action  : bfs
+        | dfs
+        | kruskal
+        ;
+
+
+GRAPH : 'graph';
+
+DIGRAPH :'digraph';
+
+BFS : 'bfs' ;
+
+DFS : 'dfs';
+
+KRUSKAL :'kruskal';
 
 PATH : (STRING'/')+;
 

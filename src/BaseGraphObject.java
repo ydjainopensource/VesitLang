@@ -1,6 +1,5 @@
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * The Graphviz graph base object. It can add one or more attribute to
@@ -9,7 +8,7 @@ import java.util.List;
  */
 public abstract class BaseGraphObject {
     private String id;
-    private List<Attribute> attrList;
+    private Set<Attribute> attrList;
 
     /**
      * Constructor.
@@ -17,7 +16,7 @@ public abstract class BaseGraphObject {
      */
     public BaseGraphObject(String id) {
         this.id = id;
-        attrList = new ArrayList<>();
+        attrList = new HashSet<>();
     }
 
     /**
@@ -29,12 +28,21 @@ public abstract class BaseGraphObject {
     }
 
     /**
+     * Add an attribute to attribute list.
+     * @param attr attribute
+     */
+    public void addAttributes(Collection attr){
+        this.attrList.addAll(attr);
+    }
+
+
+    /**
      * Remove attribute by attribute name. If this graph object has two or more attribute
      * with same name, it will remove them.
      * @param attributeName
      */
     public void removeAttribute(String attributeName){
-        List<Attribute> removeList = new ArrayList<>();
+        Set<Attribute> removeList = new HashSet<>();
         for(Attribute attr : this.attrList){
             if(attr.getAttrName().equals(attributeName)){
                 removeList.add(attr);
@@ -49,7 +57,7 @@ public abstract class BaseGraphObject {
     }
 
     public void removeAllAttributes(){
-        this.attrList =new ArrayList<>();
+        this.attrList =new HashSet<>();
     }
 
     /**
@@ -86,4 +94,7 @@ public abstract class BaseGraphObject {
      */
     abstract public String genDotString();
 
+    public void removeAttributes(Set<Attribute> attributes) {
+        this.attrList.removeAll(attributes);
+    }
 }

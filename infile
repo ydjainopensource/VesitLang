@@ -1,10 +1,23 @@
-graph {
+graph  {
     from a to b cost 0
-    from a to c cost 2
-    from a to d
-    from d to e
-    from e to f
-    from x to z
-    from x to x
+    from a to c cost 123
+    from a to d cost 456
+    from e to f cost 4
+    from d to e cost 789
+ }
+bfs a {
+    bfsQueuedNodeColor=khaki
+    bfsQueuedNodeShape=square
+    bfsOutImageDir=imagesBfs/
+    bfsPptName=c.pdf
 }
-
+dfs a {
+    dfsStackNodeColor=khaki
+    dfsStackNodeShape=square
+    dfsOutImageDir=imagesDfs/
+    dfsPptName=d.pdf
+}
+kruskal {
+  kruskalOutImageDir=imagesKruskal/
+  kruskalPptName = k.pdf
+}

@@ -1,3 +1,5 @@
+import java.io.File;
+
 public class DfsConfig {
     private String stackNodeColor = "aquamarine";
     private String stackNodeShape = "hexagon";
@@ -6,8 +8,7 @@ public class DfsConfig {
     private String dpi = "100";
     private String outImageDir = "imagesDfs/";
     private String pptName = "dfs.pdf";
-    private int iterNumber=0;
-
+    private int    iterNumber=0;
 
     public String getStackNodeColor() {
         return stackNodeColor;
@@ -82,6 +83,10 @@ public class DfsConfig {
         outImageDir = "imagesDfs/";
         pptName = "dfs.pdf";
         iterNumber =0;
+
+        File f = new File(outImageDir);
+        if(!f.exists())
+            f.mkdirs();
 
     }
 }

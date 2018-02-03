@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * The Graphviz Graph class. It also can use to build subgraph.
@@ -8,8 +7,8 @@ import java.util.List;
 public class Graph extends BaseGraphObject {
 
     private GraphType graphType;
-    private List<Node> nodeList;
-    private List<Edge> edgeList;
+    private Set<Node> nodeList;
+    private Set<Edge> edgeList;
     private List<Graph> subgraphList;
 
     /**
@@ -21,18 +20,27 @@ public class Graph extends BaseGraphObject {
     public Graph(String id, GraphType graphType) {
         super(id);
         this.graphType = graphType;
-        this.nodeList = new ArrayList<>();
-        this.edgeList = new ArrayList<>();
+        this.nodeList = new TreeSet<>(Comparator.comparing(Node ::getId));
+        this.edgeList = new TreeSet<>(Comparator.comparing(Edge::getWeight));
         this.subgraphList = new ArrayList<>();
     }
 
-    public List<Node> getNodeList() {
+    public Set<Node> getNodeList() {
         return nodeList;
     }
 
-    public List<Edge> getEdgeList() {
+    public Set<Edge> getEdgeList() {
         return edgeList;
     }
+
+    public Node getNodeById(String id) throws BaseGraphObjectNotFoundException{
+        for (Node n : getNodeList()){
+            if(n.getId().equals(id))
+                return n;
+        }
+        throw new BaseGraphObjectNotFoundException("Node "+ id +" does not exist");
+    }
+
 
     /**
      * Graph Type getter.
@@ -75,7 +83,7 @@ public class Graph extends BaseGraphObject {
         StringBuilder dotString = new StringBuilder();
         dotString.append("{\n");
         dotString.append(this.genAttributeDotString());
-        dotString.append(genSubgraphString());
+//        dotString.append(genSubgraphString());
         dotString.append(genNodesString());
         dotString.append(genEdgeDotString());
         dotString.append("}\n");
@@ -95,6 +103,7 @@ public class Graph extends BaseGraphObject {
 
     private String genNodesString() {
         StringBuilder nodeString = new StringBuilder();
+//        Collections.sort(nodeList, Comparator.comparing(Node :: getId()));
         for (Node node : nodeList) {
             nodeString.append(node.getId());
             nodeString.append(node.genDotString());

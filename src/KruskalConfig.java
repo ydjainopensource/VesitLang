@@ -1,6 +1,4 @@
-import java.io.File;
-
-public class BfsConfig {
+public class KruskalConfig {
     private String visitedNodeColor = "grey60";
     private String queuedNodeColor = "aquamarine";
     private String currentNodeColor = "red";
@@ -10,7 +8,7 @@ public class BfsConfig {
     private String dpi = "100";
     private String outImageDir = "imagesBfs/";
     private String pptName = "bfs.pdf";
-    private int iterNumber =0;
+    private int iterNumber = 0;
 
     public String getVisitedNodeColor() {
         return visitedNodeColor;
@@ -18,14 +16,6 @@ public class BfsConfig {
 
     public void setVisitedNodeColor(String visitedNodeColor) {
         this.visitedNodeColor = visitedNodeColor;
-    }
-
-    public String getQueuedNodeColor() {
-        return queuedNodeColor;
-    }
-
-    public void setQueuedNodeColor(String queuedNodeColor) {
-        this.queuedNodeColor = queuedNodeColor;
     }
 
     public String getCurrentNodeColor() {
@@ -42,14 +32,6 @@ public class BfsConfig {
 
     public void setCurrentNodeShape(String currentNodeShape) {
         this.currentNodeShape = currentNodeShape;
-    }
-
-    public String getQueuedNodeShape() {
-        return queuedNodeShape;
-    }
-
-    public void setQueuedNodeShape(String queuedNodeShape) {
-        this.queuedNodeShape = queuedNodeShape;
     }
 
     public String getVisitedNodeShape() {
@@ -92,7 +74,7 @@ public class BfsConfig {
         this.iterNumber = iterNumber;
     }
 
-    public void resetBfsConfig() {
+    public void resetkruskalConfig() {
         queuedNodeShape = "doublecircle";
         visitedNodeShape = "doubleoctagon";
         dpi = "100";
@@ -102,10 +84,7 @@ public class BfsConfig {
         visitedNodeColor = "grey60";
         currentNodeColor = "red";
         currentNodeShape = "Mdiamond";
-        iterNumber=0;
-        File f = new File(outImageDir);
-        if(!f.exists())
-            f.mkdirs();
+        iterNumber = 0;
 
     }
 }

@@ -13,6 +13,10 @@ public class DFS {
 
     public static void loadDfsConfig(DfsConfig dc) {
         dfsConfig = dc;
+        File f = new File(dc.getOutImageDir());
+        if(!f.exists()){
+            f.mkdirs();
+        }
     }
 
     public void dfs(Graph graph, Node start) {

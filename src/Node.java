@@ -32,7 +32,7 @@ public class Node extends BaseGraphObject implements Comparable {
         if(o instanceof Node)
         {
             Node that = (Node) o;
-            result = that.getId().equals(this.getId());
+            result = this.getId().equals(that.getId());
         }
         return  result;
     }

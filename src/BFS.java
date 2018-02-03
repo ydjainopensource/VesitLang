@@ -10,6 +10,10 @@ public class BFS {
 
     public void loadBfsConfig(BfsConfig config){
         bfsConfig = config;
+        File f = new File(bfsConfig.getOutImageDir());
+        if(!f.exists()){
+            f.mkdirs();
+        }
     }
 
     public void bfs(Graph graph, Node start) {
@@ -26,22 +30,27 @@ public class BFS {
         while (!q.isEmpty()) {
 
             Node top = q.peek();
-
+            System.err.println(q);
+            top.removeAllAttributes();
             top.addAttribute(new Attribute("shape", bfsConfig.getCurrentNodeShape()));
             top.addAttribute(new Attribute("style", "filled"));
             top.addAttribute(new Attribute("color", bfsConfig.getCurrentNodeColor()));
+
+            genImageAndPpt(graph);
 
             addToQueue(graph, top);
 
 //            System.err.println(q);
 
-            top.removeAttribute("color");
-            top.removeAttribute("shape");
+            top.removeAllAttributes();
+//            top.removeAttribute("color");
+//            top.removeAttribute("shape");
             top.addAttribute(new Attribute("shape",bfsConfig.getVisitedNodeShape()));
             top.addAttribute(new Attribute("color",bfsConfig.getVisitedNodeColor()));
 
             q.remove();
             genImageAndPpt(graph);
+
         }
     }
 
@@ -56,11 +65,11 @@ public class BFS {
 
                     visited.add(toNode);
                     q.add(toNode);
-
+                    toNode.removeAllAttributes();
                     toNode.addAttribute(new Attribute("shape", bfsConfig.getQueuedNodeShape()));
                     toNode.addAttribute(new Attribute("style", "filled"));
                     toNode.addAttribute(new Attribute("color", bfsConfig.getQueuedNodeColor()));
-//                    System.err.println("adding "+ toNode);
+                    System.err.println("adding "+ toNode);
                     genImageAndPpt(graph);
 
                 }

@@ -1,23 +1,32 @@
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
 
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 
 public class EvalListener extends VesitLangBaseListener {
 
     boolean bfs=false;
     boolean dfs =false;
+    boolean kruskal =false;
+
+    public void setKruskal(boolean kruskal) {
+        this.kruskal = kruskal;
+    }
+
     private Graph graph;
-    private Set<Edge> edges = new HashSet<>();
-    private Set<Node> nodes = new HashSet<>();
+    private Set<Edge> edges = new TreeSet<>(new WeightComparator());
+    private Set<Node> nodes = new TreeSet<>(Comparator.comparing(Node::getId));
     private String bfsNodeName;
     private Node dfsStartNode;
     private String dfsNodeName;
     private Node bfsStartNode;
     private BfsConfig bfsConfig = new BfsConfig();
     private DfsConfig dfsConfig = new DfsConfig();
+    private KruskalConfig kruskalConfig = new KruskalConfig();
 
     public boolean isBfs() {
         return bfs;
@@ -33,6 +42,10 @@ public class EvalListener extends VesitLangBaseListener {
 
     public boolean isDfs() {
         return dfs;
+    }
+
+    public boolean isKruskal() {
+        return kruskal;
     }
 
     public void setDfs(boolean dfs) {
@@ -69,8 +82,24 @@ public class EvalListener extends VesitLangBaseListener {
     @Override
     public void exitEdge(VesitLangParser.EdgeContext ctx) {
         System.out.println("inside exit edge ");
-        Node from = new Node(ctx.from().STRING().toString());
-        Node to = new Node(ctx.to().STRING().toString());
+
+        String fromName = ctx.from().STRING().toString();
+        String toName = ctx.to().STRING().toString();
+        Node from, to;
+
+        try{
+            from = graph.getNodeById(fromName);
+        }catch (BaseGraphObjectNotFoundException e)
+        {
+            from = new Node(fromName);
+        }
+
+        try {
+            to = graph.getNodeById(toName);
+        } catch (BaseGraphObjectNotFoundException e) {
+            to = new Node(toName);
+        }
+
         Edge edge = new Edge(from,to);
         if(ctx.INT() != null) {
             edge.addAttribute(new Attribute("label",ctx.INT().toString()));
@@ -226,8 +255,62 @@ public class EvalListener extends VesitLangBaseListener {
         }
     }
 
+
+
+
+
+    @Override
+    public void enterKruskalVisitedNodeColor(VesitLangParser.KruskalVisitedNodeColorContext ctx) {
+        kruskalConfig.setVisitedNodeColor(ctx.STRING().toString());
+    }
+
+    @Override
+    public void enterKruskalCurrentNodeColor(VesitLangParser.KruskalCurrentNodeColorContext ctx) {
+        kruskalConfig.setCurrentNodeColor(ctx.STRING().toString());
+    }
+
+    @Override
+    public void enterKruskalCurrentNodeShape(VesitLangParser.KruskalCurrentNodeShapeContext ctx) {
+        kruskalConfig.setCurrentNodeShape(ctx.STRING().toString());
+    }
+
+
+    @Override
+    public void enterKruskalVisitedNodeShape(VesitLangParser.KruskalVisitedNodeShapeContext ctx) {
+        kruskalConfig.setVisitedNodeShape(ctx.STRING().toString());
+    }
+
+    @Override
+    public void enterKruskalDpi(VesitLangParser.KruskalDpiContext ctx) {
+        kruskalConfig.setDpi(ctx.STRING().toString());
+    }
+
+    @Override
+    public void enterKruskalOutImageDir(VesitLangParser.KruskalOutImageDirContext ctx) {
+        kruskalConfig.setOutImageDir(ctx.PATH().toString());
+    }
+
+    @Override
+    public void enterKruskal(VesitLangParser.KruskalContext ctx) {
+        setKruskal(true);
+    }
+
+    public KruskalConfig getKruskalConfig() {
+        return kruskalConfig;
+    }
+
+    @Override
+    public void enterKruskalPptName(VesitLangParser.KruskalPptNameContext ctx) {
+        System.out.println("kruskal ppt name : " + ctx.STRING().get(0).toString() +"." + ctx.STRING().get(1).toString() );
+        kruskalConfig.setPptName(ctx.STRING().get(0).toString() +"." + ctx.STRING().get(1).toString());
+    }
+
+
+
+
     @Override
     public void visitErrorNode(ErrorNode node) {
+//        System.err.println(node.getText().length());
         System.err.println("Error in input file");
         System.err.println("Aborting !!!");
         System.exit(1);

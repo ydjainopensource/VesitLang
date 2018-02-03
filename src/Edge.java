@@ -22,11 +22,12 @@ public class Edge extends BaseGraphObject implements Comparable {
         if(o instanceof Edge)
         {
             Edge that = (Edge) o;
+            return this.weight.compareTo(that.weight);
 
-            if( this.getFromNode().compareTo(that.getFromNode()) ==0)
-                return getToNode().compareTo(that.getToNode());
-            else
-                this.getFromNode().compareTo(that.getFromNode());
+//            if( this.getFromNode().compareTo(that.getFromNode()) ==0)
+//                return getToNode().compareTo(that.getToNode());
+//            else
+//                this.getFromNode().compareTo(that.getFromNode());
         }
         return 0;
     }
@@ -39,13 +40,14 @@ public class Edge extends BaseGraphObject implements Comparable {
             Edge that = (Edge) o;
             result = that.getFromNode().equals(this.getFromNode())&&
                     that.getToNode().equals(this.getFromNode());
+            result = result && this.weight == that.weight ;
         }
         return  result;
     }
 
     @Override
     public String toString() {
-        return getToNode() +"\t" + getFromNode();
+        return getFromNode() +" to " + getToNode() + " weighing "+getWeight();
     }
 
     /**
