@@ -1,3 +1,5 @@
+import com.sun.org.apache.xpath.internal.axes.NodeSequence;
+
 import java.util.*;
 
 /**
@@ -10,6 +12,15 @@ public class Graph extends BaseGraphObject {
     private Set<Node> nodeList;
     private Set<Edge> edgeList;
     private List<Graph> subgraphList;
+
+    public Graph(Graph g) {
+        super(new String(g.getId()));
+        this.graphType = g.getGraphType();
+        this.edgeList = new TreeSet<>(new WeightComparator());
+        edgeList.addAll(g.getEdgeList());
+        this.nodeList = new TreeSet<>(Comparator.comparing(Node :: getId));
+        this.subgraphList = new ArrayList<>(g.subgraphList);
+    }
 
     /**
      * Constructor.
@@ -131,6 +142,14 @@ public class Graph extends BaseGraphObject {
             default:
                 throw new GraphException("Not Support Graph Type.");
         }
+    }
+
+    public void setNodeList(Set<Node> nodeList) {
+        this.nodeList = nodeList;
+    }
+
+    public void setEdgeList(Set<Edge> edgeList) {
+        this.edgeList = edgeList;
     }
 }
 

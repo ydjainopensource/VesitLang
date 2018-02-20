@@ -1,6 +1,6 @@
 import java.io.File;
 
-public class BfsConfig {
+public class BfsConfig implements ActionConfig {
     private String visitedNodeColor = "grey60";
     private String queuedNodeColor = "aquamarine";
     private String currentNodeColor = "red";

@@ -1,6 +1,6 @@
 grammar VesitLang;
 
-import DfsConfig , BfsConfig,KruskalConfig;
+import DfsConfig , BfsConfig,KruskalConfig, PrimConfig;
 
 
 bfs : BFS STRING '{' bfsproperties* '}'
@@ -16,6 +16,10 @@ kruskal : KRUSKAL '{' kruskalproperties* '}'
         | KRUSKAL
         ;
 
+prim    : PRIM '{' primproperties '}'
+        | PRIM
+        ;
+
 bfsproperties : bfsQueuedNodeColor
               | bfsVisitedNodeColor
               | bfsCurrentNodeColor
@@ -29,13 +33,36 @@ bfsproperties : bfsQueuedNodeColor
 
 
 kruskalproperties : kruskalVisitedNodeColor
-              | kruskalCurrentNodeColor
-              | kruskalCurrentNodeShape
-              | kruskalVisitedNodeShape
-              | kruskalDpi
-              | kruskalOutImageDir
-              | kruskalPptName
-                ;
+                  | kruskalCurrentNodeColor
+                  | kruskalCurrentNodeShape
+                  | kruskalVisitedNodeShape
+                  | kruskalDpi
+                  | kruskalOutImageDir
+                  | kruskalPptName
+                  | kruskalCurrentEdgeColor
+                  | kruskalCurrentEdgeWidth
+                  | kruskalVisitedEdgeWidth
+                  | kruskalVisitedEdgeColor
+                  ;
+
+
+
+primproperties    : primVisitedNodeColor
+                  | primCurrentNodeColor
+                  | primCurrentNodeShape
+                  | primVisitedNodeShape
+                  | primDpi
+                  | primOutImageDir
+                  | primPptName
+                  | primCurrentEdgeColor
+                  | primCurrentEdgeWidth
+                  | primVisitedEdgeWidth
+                  | primVisitedEdgeColor
+                  ;
+
+
+
+
 
 dfsproperties : dfsStackNodeColor
               | dfsStackNodeShape
@@ -48,21 +75,18 @@ dfsproperties : dfsStackNodeColor
 
 edges : edge+
       ;
+
 edge  : FROM from TO to 'cost' INT
       | FROM from TO to
       ;
 
 from : STRING
      ;
+
 to  : STRING
    ;
 
-
-expression  : graph EOF
-//            | graph kruskal EOF
-            ;
-
-graph :   GRAPH '{' edges '}' action_list
+graph   :   GRAPH '{' edges '}' action_list
 //        | GRAPH '{' edges '}' dfs
 //        | GRAPH '{' edges '}' bfs dfs
 //        | GRAPH '{' edges '}' dfs bfs
@@ -77,6 +101,7 @@ action_list : action action_list
 action  : bfs
         | dfs
         | kruskal
+        | prim
         ;
 
 
@@ -89,6 +114,8 @@ BFS : 'bfs' ;
 DFS : 'dfs';
 
 KRUSKAL :'kruskal';
+
+PRIM    : 'prim';
 
 PATH : (STRING'/')+;
 

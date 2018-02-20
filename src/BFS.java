@@ -25,7 +25,7 @@ public class BFS {
 
         q.add(start);
         visited.add(start);
-        genImageAndPpt(graph);
+        VesitLang.genImageAndPpt(graph,bfsConfig);
 
         while (!q.isEmpty()) {
 
@@ -36,7 +36,7 @@ public class BFS {
             top.addAttribute(new Attribute("style", "filled"));
             top.addAttribute(new Attribute("color", bfsConfig.getCurrentNodeColor()));
 
-            genImageAndPpt(graph);
+            VesitLang.genImageAndPpt(graph,bfsConfig);
 
             addToQueue(graph, top);
 
@@ -46,10 +46,11 @@ public class BFS {
 //            top.removeAttribute("color");
 //            top.removeAttribute("shape");
             top.addAttribute(new Attribute("shape",bfsConfig.getVisitedNodeShape()));
+            top.addAttribute(new Attribute("style","filled"));
             top.addAttribute(new Attribute("color",bfsConfig.getVisitedNodeColor()));
 
             q.remove();
-            genImageAndPpt(graph);
+            VesitLang.genImageAndPpt(graph,bfsConfig);
 
         }
     }
@@ -70,29 +71,10 @@ public class BFS {
                     toNode.addAttribute(new Attribute("style", "filled"));
                     toNode.addAttribute(new Attribute("color", bfsConfig.getQueuedNodeColor()));
                     System.err.println("adding "+ toNode);
-                    genImageAndPpt(graph);
+                    VesitLang.genImageAndPpt(graph,bfsConfig);
 
                 }
             }
-        }
-    }
-
-
-//    public static int getIterNumber() {
-//        return iterNumber;
-//    }
-
-    public void genImageAndPpt(Graph graph) {
-        try{
-            byte[] graphByteArray = gv.getGraphByteArray(graph, "png", bfsConfig.getDpi());
-            File outFile = new File(bfsConfig.getOutImageDir() + "" + bfsConfig.getIterNumber() + ".png");
-            VesitLang.writeGraphToFile(graphByteArray, outFile);
-            bfsConfig.setIterNumber(bfsConfig.getIterNumber()+1);
-            VesitLang.generatePdf(bfsConfig.getIterNumber(),bfsConfig.getOutImageDir(),bfsConfig.getPptName());
-        }catch (Exception ec){
-            System.err.println(ec.toString());
-            System.err.println("Error while generating PPT");
-            System.err.println("Aborting");
         }
     }
 }

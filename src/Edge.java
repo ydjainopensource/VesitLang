@@ -1,3 +1,4 @@
+import java.util.Objects;
 
 /**
  * The Edge class like Graphviz's edge.
@@ -18,6 +19,7 @@ public class Edge extends BaseGraphObject implements Comparable {
 
     @Override
     public int compareTo(Object o) {
+        System.err.println("edge compare called");
         int result = 0;
         if(o instanceof Edge)
         {
@@ -34,15 +36,32 @@ public class Edge extends BaseGraphObject implements Comparable {
 
     @Override
     public boolean equals(Object o) {
-        boolean result = false;
-        if(o instanceof Edge)
-        {
-            Edge that = (Edge) o;
-            result = that.getFromNode().equals(this.getFromNode())&&
-                    that.getToNode().equals(this.getFromNode());
-            result = result && this.weight == that.weight ;
-        }
-        return  result;
+        if (this == o) return true;
+        if (!(o instanceof Edge)) return false;
+        Edge edge = (Edge) o;
+        return Objects.equals(fromNode, edge.fromNode) &&
+                Objects.equals(toNode, edge.toNode) &&
+                Objects.equals(weight, edge.weight);
+    }
+
+//    @Override
+//    public boolean equals(Object o) {
+//        System.err.println("edge equal called");
+//        boolean result = false;
+//        if(o instanceof Edge)
+//        {
+//            Edge that = (Edge) o;
+//            result = that.getFromNode().equals(this.getFromNode())&&
+//                    that.getToNode().equals(this.getToNode());
+//            result = result && this.weight == that.weight ;
+//        }
+//        return  result;
+//    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(fromNode, toNode, weight);
     }
 
     @Override

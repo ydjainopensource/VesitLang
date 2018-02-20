@@ -1,6 +1,6 @@
 import java.io.File;
 
-public class DfsConfig {
+public class DfsConfig implements ActionConfig {
     private String stackNodeColor = "aquamarine";
     private String stackNodeShape = "hexagon";
     private String visitedNodeColor = "grey60";

@@ -23,7 +23,7 @@ public class VesitLangCli {
         String[] aargs = {"infile" };
 
         // Initialize picocli
-        VesitLangCli vesitLangCli = CommandLine.populateCommand(new VesitLangCli(), aargs);
+        VesitLangCli vesitLangCli = CommandLine.populateCommand(new VesitLangCli(), args);
 
         // help requested
         if(usageHelpRequested){

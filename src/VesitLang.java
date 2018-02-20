@@ -10,6 +10,7 @@ import com.itextpdf.layout.element.List;
 import com.itextpdf.layout.property.HorizontalAlignment;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.TokenSource;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
@@ -142,13 +143,39 @@ public class VesitLang {
         document.close();
     }
 
+
+    public static void genImageAndPpt(Graph graph, ActionConfig config) {
+        try{
+            Graphviz gv = new Graphviz();
+            byte[] graphByteArray = gv.getGraphByteArray(graph, "png", config.getDpi());
+            File outFile = new File(config.getOutImageDir() + "" + config.getIterNumber() + ".png");
+            VesitLang.writeGraphToFile(graphByteArray, outFile);
+            config.setIterNumber(config.getIterNumber()+1);
+            VesitLang.generatePdf(config.getIterNumber(),config.getOutImageDir(),config.getPptName());
+        }catch (Exception ec){
+            System.err.println(ec.toString());
+            System.err.println("Error while generating PPT");
+            System.err.println("Aborting");
+        }
+    }
+
+
+
     /**
      * Function to manage traversal calls
      * @param elistener the listener which has the graph to traverse on
      */
 
     public static void traversal(EvalListener elistener){
-        assert elistener.isKruskal() == true;
+
+        if (elistener.isPrim()) {
+            Prim prim = new Prim();
+            prim.loadPrimConfig(new PrimConfig());
+            prim.setGraph(elistener.getGraph());
+            prim.mst();
+        }
+
+
         if(elistener.isKruskal()) {
             Kruskal kruskal = new Kruskal();
             kruskal.loadKruskalConfig(elistener.getKruskalConfig());
@@ -156,7 +183,7 @@ public class VesitLang {
             kruskal.mst();
         }
 
-        //        DFS.
+        // BFS.
         if(elistener.isBfs()){
             System.out.println("call bfs");
 
@@ -164,13 +191,15 @@ public class VesitLang {
             bfs.loadBfsConfig(elistener.getBfsConfig());
             bfs.bfs(elistener.getGraph(),elistener.getBfsStartNode());
         }
+
         if(elistener.isDfs()){
 //            System.err.println("call dfs");
             DFS dfs = new DFS();
             dfs.loadDfsConfig(elistener.getDfsConfig());
             dfs.dfs(elistener.getGraph(),elistener.getDfsStartNode());
         }
-        if(!(elistener.isBfs() || elistener.isDfs())){
+
+        if(!(elistener.isBfs() || elistener.isDfs() || elistener.isPrim()||elistener.isKruskal())){
             System.out.println("Default location is imagesDfs/0.png , dfs.pdf");
 
             try{
@@ -190,8 +219,15 @@ public class VesitLang {
                 e.printStackTrace();
                 System.err.println("error while displaying image");
             }
-
         }
+
+//        if (elistener.isPrim()) {
+//            Prim prim = new Prim();
+//            prim.loadPrimConfig(new PrimConfig());
+//            prim.setGraph(elistener.getGraph());
+//            prim.mst();
+//        }
+
 
     }
 

@@ -8,7 +8,7 @@ bfsCurrentNodeColor     : 'bfsCurrentNodeColor' '='  STRING;
 bfsCurrentNodeShape     : 'bfsCurrentNodeShape' '='  STRING;
 bfsQueuedNodeShape      : 'bfsQueuedNodeShape' '=' STRING;
 bfsVisitedNodeShape     : 'bfsVisitedNodeShape' '=' STRING;
-bfsDpi                  : 'bfsDpi' '=' STRING;
+bfsDpi                  : 'bfsDpi' '=' INT;
 bfsOutImageDir          : 'bfsOutImageDir' '='  PATH;
 bfsPptName              : 'bfsPptName' '=' STRING '.' STRING;
 

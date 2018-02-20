@@ -28,21 +28,6 @@ public class DFS {
         dfsw(graph, start);
     }
 
-    public void genImageAndPpt(Graph graph) {
-        try {
-            byte[] graphByteArray = gv.getGraphByteArray(graph, "png", dfsConfig.getDpi());
-            File outFile = new File(dfsConfig.getOutImageDir() + "" + dfsConfig.getIterNumber() + ".png");
-            VesitLang.writeGraphToFile(graphByteArray, outFile);
-            dfsConfig.setIterNumber(dfsConfig.getIterNumber() + 1);
-            VesitLang.generatePdf(dfsConfig.getIterNumber(), dfsConfig.getOutImageDir(), dfsConfig.getPptName());
-        } catch (Exception ec) {
-            ec.printStackTrace();
-            System.err.println(ec.toString());
-            System.err.println("Error while generating PPT");
-            System.err.println("Aborting");
-        }
-    }
-
 
     public void dfsw(Graph graph, Node start) {
 
@@ -51,7 +36,7 @@ public class DFS {
         start.addAttribute(new Attribute("style", "filled"));
         start.addAttribute(new Attribute("color", dfsConfig.getStackNodeColor()));
 
-        genImageAndPpt(graph);
+        VesitLang.genImageAndPpt(graph,dfsConfig);
 
         for (Edge e : graph.getEdgeList()) {
             Node toNode = e.getToNode();
@@ -67,7 +52,7 @@ public class DFS {
         start.addAttribute(new Attribute("shape", dfsConfig.getVisitedNodeShape()));
         start.addAttribute(new Attribute("style", "filled"));
         start.addAttribute(new Attribute("color", dfsConfig.getVisitedNodeColor()));
-        genImageAndPpt(graph);
+        VesitLang.genImageAndPpt(graph,dfsConfig);
         stack.pop();
     }
 }

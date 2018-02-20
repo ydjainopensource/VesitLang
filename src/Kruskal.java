@@ -40,16 +40,21 @@ public class Kruskal {
         Set<Node> node = new TreeSet<>(Comparator.comparing(BaseGraphObject::getId));
         node.addAll(getGraph().getNodeList());
 
-        for (Node n : node){ n.removeAllAttributes();}
-
         loadAttributes();
 
+        for (Node n : node){
+            n.removeAllAttributes();
+//            n.addAttribute(new Attribute("style","filled"));
+        }
 
+        Node toNode = null,fromNode =null;
+        Edge e=null;
 
         for (Edge currentEdge: edges) {
+            e = currentEdge;
 
-            Node toNode = currentEdge.getToNode();
-            Node fromNode = currentEdge.getFromNode();
+            toNode = currentEdge.getToNode();
+            fromNode = currentEdge.getFromNode();
 
             if(!(visited.contains(fromNode)
                 && visited.contains(toNode))){
@@ -60,7 +65,7 @@ public class Kruskal {
                 System.err.println(fromNode +"\t" + toNode);
 
                 currentEdge.addAttributes(currentEdgeAttributes);
-                
+
                 fromNode.removeAllAttributes();
                 toNode.removeAllAttributes();
 
@@ -68,8 +73,8 @@ public class Kruskal {
                 toNode.addAttributes(currentNodeAttributes);
 
 //                assert !(toNode.equals(fromNode));
-                
-                genImageAndPpt(getGraph());
+
+                VesitLang.genImageAndPpt(getGraph(),kruskalConfig);
 
                 currentEdge.removeAttributes(currentEdgeAttributes);
                 currentEdge.addAttributes(visitedEdgeAttributes);
@@ -82,11 +87,19 @@ public class Kruskal {
 
 
             }
-
         }
 
-        for (Node n : node){ n.removeAllAttributes();}
-        for (Edge e : edges){e.removeAttributes(visitedEdgeAttributes);};
+        toNode.removeAttributes(currentNodeAttributes);
+        fromNode.removeAttributes(currentNodeAttributes);
+        toNode.addAttributes(visitedNodeAttributes);
+        fromNode.addAttributes(visitedNodeAttributes);
+        e.removeAttributes(currentEdgeAttributes);
+        e.removeAttributes(visitedEdgeAttributes);
+
+        VesitLang.genImageAndPpt(getGraph(),kruskalConfig);
+
+        for(Edge edge :edges) edge.removeAttributes(visitedEdgeAttributes);
+
 
 
     }
@@ -99,12 +112,13 @@ public class Kruskal {
     }
 
     private void loadCurrentEdgeAttributes() {
-        currentEdgeAttributes.add(new Attribute("penwidth", "5"));
-        currentEdgeAttributes.add(new Attribute("color", "red"));
+        currentEdgeAttributes.add(new Attribute("penwidth", kruskalConfig.getCurrentEdgeWidth()));
+        currentEdgeAttributes.add(new Attribute("color", kruskalConfig.getCurrentEdgeColor()));
     }
 
     private void LoadVisitedEdgeAttributes() {
-        visitedEdgeAttributes.add(new Attribute("color","blue"));
+        visitedEdgeAttributes.add(new Attribute("color", kruskalConfig.getVisitedEdgeColor()));
+        visitedEdgeAttributes.add(new Attribute("penwidth", kruskalConfig.getVisitedEdgeWidth()));
     }
 
     private void loadVisitedNodeAttributes() {
@@ -117,22 +131,6 @@ public class Kruskal {
         currentNodeAttributes.add(new Attribute("style","filled"));
         currentNodeAttributes.add(new Attribute("color",kruskalConfig.getCurrentNodeColor()));
         currentNodeAttributes.add(new Attribute("shape",kruskalConfig.getCurrentNodeShape()));
-    }
-
-
-    public void genImageAndPpt(Graph graph) {
-        try{
-            Graphviz gv = new Graphviz();
-            byte[] graphByteArray = gv.getGraphByteArray(graph, "png", kruskalConfig.getDpi());
-            File outFile = new File(kruskalConfig.getOutImageDir() + "" + kruskalConfig.getIterNumber() + ".png");
-            VesitLang.writeGraphToFile(graphByteArray, outFile);
-            kruskalConfig.setIterNumber(kruskalConfig.getIterNumber()+1);
-            VesitLang.generatePdf(kruskalConfig.getIterNumber(),kruskalConfig.getOutImageDir(),kruskalConfig.getPptName());
-        }catch (Exception ec){
-            System.err.println(ec.toString());
-            System.err.println("Error while generating PPT");
-            System.err.println("Aborting");
-        }
     }
 }
 

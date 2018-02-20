@@ -7,7 +7,7 @@ dfsStackNodeColor   : 'dfsStackNodeColor' '=' STRING;
 dfsStackNodeShape   : 'dfsStackNodeShape' '=' STRING;
 dfsVisitedNodeColor : 'dfsVisitedNodeColor' '=' STRING;
 dfsVisitedNodeShape : 'dfsVisitedNodeShape' '=' STRING;
-dfsDpi              : 'dfsDpi' '=' STRING;
+dfsDpi              : 'dfsDpi' '=' INT;
 dfsOutImageDir      : 'dfsOutImageDir' '=' PATH;
 dfsPptName          : 'dfsPptName' '=' STRING '.' STRING ;
 

@@ -12,11 +12,7 @@ public class EvalListener extends VesitLangBaseListener {
     boolean bfs=false;
     boolean dfs =false;
     boolean kruskal =false;
-
-    public void setKruskal(boolean kruskal) {
-        this.kruskal = kruskal;
-    }
-
+    boolean prim =false;
     private Graph graph;
     private Set<Edge> edges = new TreeSet<>(new WeightComparator());
     private Set<Node> nodes = new TreeSet<>(Comparator.comparing(Node::getId));
@@ -27,6 +23,39 @@ public class EvalListener extends VesitLangBaseListener {
     private BfsConfig bfsConfig = new BfsConfig();
     private DfsConfig dfsConfig = new DfsConfig();
     private KruskalConfig kruskalConfig = new KruskalConfig();
+    private PrimConfig primConfig = new PrimConfig();
+
+    public void setKruskal(boolean kruskal) {
+        this.kruskal = kruskal;
+    }
+
+    public boolean isPrim() {
+        return prim;
+    }
+
+    public void setPrim(boolean prim) {
+        this.prim = prim;
+    }
+
+    public void setBfsConfig(BfsConfig bfsConfig) {
+        this.bfsConfig = bfsConfig;
+    }
+
+    public void setDfsConfig(DfsConfig dfsConfig) {
+        this.dfsConfig = dfsConfig;
+    }
+
+    public void setKruskalConfig(KruskalConfig kruskalConfig) {
+        this.kruskalConfig = kruskalConfig;
+    }
+
+    public PrimConfig getPrimConfig() {
+        return primConfig;
+    }
+
+    public void setPrimConfig(PrimConfig primConfig) {
+        this.primConfig = primConfig;
+    }
 
     public boolean isBfs() {
         return bfs;
@@ -180,7 +209,7 @@ public class EvalListener extends VesitLangBaseListener {
 
     @Override
     public void enterBfsDpi(VesitLangParser.BfsDpiContext ctx) {
-        bfsConfig.setDpi(ctx.STRING().toString());
+        bfsConfig.setDpi(ctx.INT().toString());
     }
 
     @Override
@@ -210,12 +239,17 @@ public class EvalListener extends VesitLangBaseListener {
 
     @Override
     public void enterDfsDpi(VesitLangParser.DfsDpiContext ctx) {
-        dfsConfig.setDpi(ctx.STRING().toString());
+        dfsConfig.setDpi(ctx.INT().toString());
     }
 
     @Override
     public void enterDfsOutImageDir(VesitLangParser.DfsOutImageDirContext ctx) {
         dfsConfig.setOutImageDir(ctx.PATH().toString());
+    }
+
+    @Override
+    public void enterPrim(VesitLangParser.PrimContext ctx) {
+        setPrim(true);
     }
 
     @Override
@@ -282,7 +316,7 @@ public class EvalListener extends VesitLangBaseListener {
 
     @Override
     public void enterKruskalDpi(VesitLangParser.KruskalDpiContext ctx) {
-        kruskalConfig.setDpi(ctx.STRING().toString());
+        kruskalConfig.setDpi(ctx.INT().toString());
     }
 
     @Override
@@ -305,8 +339,80 @@ public class EvalListener extends VesitLangBaseListener {
         kruskalConfig.setPptName(ctx.STRING().get(0).toString() +"." + ctx.STRING().get(1).toString());
     }
 
+    @Override
+    public void enterKruskalCurrentEdgeColor(VesitLangParser.KruskalCurrentEdgeColorContext ctx) {
+        kruskalConfig.setCurrentEdgeColor(ctx.STRING().toString());
+    }
 
+    @Override
+    public void enterKruskalCurrentEdgeWidth(VesitLangParser.KruskalCurrentEdgeWidthContext ctx) {
+        kruskalConfig.setCurrentEdgeWidth(ctx.STRING().toString());
+    }
 
+    @Override
+    public void enterKruskalVisitedEdgeWidth(VesitLangParser.KruskalVisitedEdgeWidthContext ctx) {
+        kruskalConfig.setVisitedEdgeWidth(ctx.STRING().toString());
+    }
+
+    @Override
+    public void enterKruskalVisitedEdgeColor(VesitLangParser.KruskalVisitedEdgeColorContext ctx) {
+        kruskalConfig.setVisitedEdgeColor(ctx.STRING().toString());
+    }
+
+    @Override
+    public void enterPrimVisitedNodeColor(VesitLangParser.PrimVisitedNodeColorContext ctx) {
+        primConfig.setVisitedNodeColor(ctx.STRING().toString());
+    }
+
+    @Override
+    public void enterPrimCurrentNodeColor(VesitLangParser.PrimCurrentNodeColorContext ctx) {
+        primConfig.setCurrentNodeColor(ctx.STRING().toString());
+    }
+
+    @Override
+    public void enterPrimCurrentNodeShape(VesitLangParser.PrimCurrentNodeShapeContext ctx) {
+        primConfig.setCurrentNodeShape(ctx.STRING().toString());
+    }
+
+    @Override
+    public void enterPrimVisitedNodeShape(VesitLangParser.PrimVisitedNodeShapeContext ctx) {
+        primConfig.setVisitedNodeShape(ctx.STRING().toString());
+    }
+
+    @Override
+    public void enterPrimDpi(VesitLangParser.PrimDpiContext ctx) {
+        primConfig.setDpi(ctx.INT().toString());
+    }
+
+    @Override
+    public void enterPrimOutImageDir(VesitLangParser.PrimOutImageDirContext ctx) {
+        primConfig.setOutImageDir(ctx.PATH().toString());
+    }
+
+    @Override
+    public void enterPrimPptName(VesitLangParser.PrimPptNameContext ctx) {
+        primConfig.setPptName(ctx.STRING().toString());
+    }
+
+    @Override
+    public void enterPrimCurrentEdgeColor(VesitLangParser.PrimCurrentEdgeColorContext ctx) {
+        primConfig.setCurrentEdgeColor(ctx.STRING().toString());
+    }
+
+    @Override
+    public void enterPrimCurrentEdgeWidth(VesitLangParser.PrimCurrentEdgeWidthContext ctx) {
+        primConfig.setCurrentEdgeWidth(ctx.STRING().toString());
+    }
+
+    @Override
+    public void enterPrimVisitedEdgeWidth(VesitLangParser.PrimVisitedEdgeWidthContext ctx) {
+        primConfig.setVisitedEdgeWidth(ctx.STRING().toString());
+    }
+
+    @Override
+    public void enterPrimVisitedEdgeColor(VesitLangParser.PrimVisitedEdgeColorContext ctx) {
+        primConfig.setVisitedEdgeColor(ctx.STRING().toString());
+    }
 
     @Override
     public void visitErrorNode(ErrorNode node) {

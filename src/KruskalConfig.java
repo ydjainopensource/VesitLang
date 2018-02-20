@@ -1,14 +1,48 @@
-public class KruskalConfig {
+public class KruskalConfig implements ActionConfig{
+    private String currentEdgeColor = "red";
+    private String currentEdgeWidth = "5";
+    private String visitedEdgeWidth = "3";
+    private String visitedEdgeColor = "blue";
     private String visitedNodeColor = "grey60";
-    private String queuedNodeColor = "aquamarine";
-    private String currentNodeColor = "red";
+    private String currentNodeColor = "khaki";
     private String currentNodeShape = "Mdiamond";
-    private String queuedNodeShape = "doublecircle";
     private String visitedNodeShape = "doubleoctagon";
     private String dpi = "100";
     private String outImageDir = "imagesBfs/";
     private String pptName = "bfs.pdf";
     private int iterNumber = 0;
+
+    public String getCurrentEdgeColor() {
+        return currentEdgeColor;
+    }
+
+    public void setCurrentEdgeColor(String currentEdgeColor) {
+        this.currentEdgeColor = currentEdgeColor;
+    }
+
+    public String getCurrentEdgeWidth() {
+        return currentEdgeWidth;
+    }
+
+    public void setCurrentEdgeWidth(String currentEdgeWidth) {
+        this.currentEdgeWidth = currentEdgeWidth;
+    }
+
+    public String getVisitedEdgeWidth() {
+        return visitedEdgeWidth;
+    }
+
+    public void setVisitedEdgeWidth(String visitedEdgeWidth) {
+        this.visitedEdgeWidth = visitedEdgeWidth;
+    }
+
+    public String getVisitedEdgeColor() {
+        return visitedEdgeColor;
+    }
+
+    public void setVisitedEdgeColor(String visitedEdgeColor) {
+        this.visitedEdgeColor = visitedEdgeColor;
+    }
 
     public String getVisitedNodeColor() {
         return visitedNodeColor;
@@ -74,17 +108,4 @@ public class KruskalConfig {
         this.iterNumber = iterNumber;
     }
 
-    public void resetkruskalConfig() {
-        queuedNodeShape = "doublecircle";
-        visitedNodeShape = "doubleoctagon";
-        dpi = "100";
-        outImageDir = "imagesBfs/";
-        pptName = "bfs.pdf";
-        queuedNodeColor = "aquamarine";
-        visitedNodeColor = "grey60";
-        currentNodeColor = "red";
-        currentNodeShape = "Mdiamond";
-        iterNumber = 0;
-
-    }
 }

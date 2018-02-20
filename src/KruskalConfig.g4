@@ -6,10 +6,13 @@ kruskalVisitedNodeColor     : 'kruskalVisitedNodeColor' '=' STRING;
 kruskalCurrentNodeColor     : 'kruskalCurrentNodeColor' '='  STRING;
 kruskalCurrentNodeShape     : 'kruskalCurrentNodeShape' '='  STRING;
 kruskalVisitedNodeShape     : 'kruskalVisitedNodeShape' '=' STRING;
-kruskalDpi                  : 'kruskalDpi' '=' STRING;
+kruskalDpi                  : 'kruskalDpi' '=' INT;
 kruskalOutImageDir          : 'kruskalOutImageDir' '='  PATH;
 kruskalPptName              : 'kruskalPptName' '=' STRING '.' STRING;
-
+kruskalCurrentEdgeColor     : 'kruskalCurrentEdgeColor' '=' STRING;
+kruskalCurrentEdgeWidth     : 'kruskalCurrentEdgeWidth' '=' STRING;
+kruskalVisitedEdgeWidth     : 'kruskalVisitedEdgeWidth' '=' STRING;
+kruskalVisitedEdgeColor     : 'kruskalVisitedEdgeColor' '=' STRING;
 
 PATH : (STRING'/')+;
 
