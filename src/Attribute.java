@@ -5,6 +5,7 @@ import java.util.Objects;
 /**
  * An Attribute Class. It will store graphviz attribute.
  * Created by frank on 2014/11/20.
+ * Modified by Yash  
  */
 public class Attribute {
     private String attrName;

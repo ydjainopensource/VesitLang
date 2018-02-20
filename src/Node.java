@@ -2,6 +2,7 @@
 /**
  * The Node class like Graphviz's node.
  * Created by frank on 2014/11/17.
+ * Modified by Yash
  */
 public class Node extends BaseGraphObject implements Comparable {
     @Override

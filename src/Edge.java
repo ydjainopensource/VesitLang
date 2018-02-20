@@ -3,6 +3,7 @@ import java.util.Objects;
 /**
  * The Edge class like Graphviz's edge.
  * Created by frank on 2014/11/20.
+ * Modified by Yash
  */
 public class Edge extends BaseGraphObject implements Comparable {
     private Node fromNode;
