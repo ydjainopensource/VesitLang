@@ -1,3 +1,8 @@
+
+/**
+ * Class to represent configuration used for Kruskal.
+ * Created by Yash Jain
+ */
 public class KruskalConfig implements ActionConfig{
     private String currentEdgeColor = "red";
     private String currentEdgeWidth = "5";

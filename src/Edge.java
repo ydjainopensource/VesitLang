@@ -20,7 +20,7 @@ public class Edge extends BaseGraphObject implements Comparable {
 
     @Override
     public int compareTo(Object o) {
-        System.err.println("edge compare called");
+        System.out.println("edge compare called");
         int result = 0;
         if(o instanceof Edge)
         {

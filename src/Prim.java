@@ -3,15 +3,29 @@ import java.util.*;
 
 public class Prim {
 
+    // prim config to store node clors values etc.
     private PrimConfig primConfig = new PrimConfig();
+
+    // grpah object to store the internal representation of graphs
     private Graph graph;
 
+    // set which stores currentEdgeAttributes (color, style, shape)
     Set<Attribute> currentEdgeAttributes = new HashSet<>();
+
+    // set which stores visitedEdgeAttributes (color, style, shape)
     Set<Attribute> visitedEdgeAttributes = new HashSet<>();
 
+    // set which stores currentNodeAttributes (color, style, shape)
     Set<Attribute> currentNodeAttributes = new HashSet<>();
+
+    // set which stores visitedNodeAttributes (color, style, shape)
     Set<Attribute> visitedNodeAttributes = new HashSet<>();
 
+
+    /**
+     * Load config from given PrimConfig object
+     * @param primConfig config to load from
+     */
     public void loadPrimConfig(PrimConfig primConfig) {
         this.primConfig = primConfig;
         File f = new File(primConfig.getOutImageDir());
@@ -27,6 +41,9 @@ public class Prim {
         this.graph = graph;
     }
 
+    /**
+     * mst is the actual function which runs Prims algo.
+     */
     void mst(){
 
         loadAttributes();
@@ -53,8 +70,8 @@ public class Prim {
         while(node.size() != visited.size()){
             changed =false;
 
-            System.err.println("previousNode " + previousNode + " currentNode " + currentNode);
-//            genImageAndPpt(getGraph());
+            System.out.println("previousNode " + previousNode + " currentNode " + currentNode);
+//            genImageAndPdf(getGraph());
 
 //            Set<Edge> nodeEdges = new TreeSet<>(new WeightComparator());
 
@@ -65,7 +82,7 @@ public class Prim {
                         minEdge =e;
 
             if(minEdge !=null) {
-//                genImageAndPpt(getGraph());
+//                genImageAndPdf(getGraph());
                 minEdge.addAttributes(currentEdgeAttributes);
                 currentNode.addAttributes(currentNodeAttributes);
                 Node toNode = minEdge.getToNode();
@@ -78,7 +95,7 @@ public class Prim {
                 toNode.addAttributes(visitedNodeAttributes);
                 currentNode.addAttributes(visitedNodeAttributes);
 
-                VesitLang.genImageAndPpt(getGraph(),primConfig);
+                VesitLang.genImageAndPdf(getGraph(),primConfig);
 
                 minEdge.removeAttributes(currentEdgeAttributes);
                 minEdge.addAttributes(visitedEdgeAttributes);
@@ -96,7 +113,7 @@ public class Prim {
                     currentNode.removeAttributes(currentNodeAttributes);
                     currentNode.addAttributes(visitedNodeAttributes);
 
-                    VesitLang.genImageAndPpt(getGraph(),primConfig);
+                    VesitLang.genImageAndPdf(getGraph(),primConfig);
 
                     for (Node node1 : node)
                     {
@@ -105,9 +122,9 @@ public class Prim {
                             currentNode.addAttributes(visitedNodeAttributes);
                             visited.add(currentNode);
                             currentNode = node1;
-                            System.err.println("l114 "+ node1);
+//                            System.err.println("l114 "+ node1);
                             currentNode.addAttributes(currentNodeAttributes);
-                            VesitLang.genImageAndPpt(getGraph(),primConfig);
+                            VesitLang.genImageAndPdf(getGraph(),primConfig);
                         }
                     }
 
@@ -118,7 +135,7 @@ public class Prim {
         }
         currentNode.removeAttributes(currentNodeAttributes);
         currentNode.addAttributes(visitedNodeAttributes);
-        VesitLang.genImageAndPpt(getGraph(),primConfig);
+        VesitLang.genImageAndPdf(getGraph(),primConfig);
 
         for (Node n : graph.getNodeList()) n.removeAllAttributes();
         for (Edge edge: graph.getEdgeList()) edge.removeAttributes(visitedEdgeAttributes);
@@ -126,6 +143,9 @@ public class Prim {
     }
 
 
+    /**
+     * load attribtes for visited, current edges and nodes.
+     */
 
     private void loadAttributes() {
         loadCurrentEdgeAttributes();
@@ -134,22 +154,34 @@ public class Prim {
         loadVisitedNodeAttributes();
     }
 
+    /**
+     * load current edge attributes from primconfig
+     */
     private void loadCurrentEdgeAttributes() {
         currentEdgeAttributes.add(new Attribute("penwidth", primConfig.getCurrentEdgeWidth()));
         currentEdgeAttributes.add(new Attribute("color", primConfig.getCurrentEdgeColor()));
     }
 
+    /**
+     * load visited edge attributes from primconfig
+     */
     private void LoadVisitedEdgeAttributes() {
         visitedEdgeAttributes.add(new Attribute("penwidth", primConfig.getVisitedEdgeWidth()));
         visitedEdgeAttributes.add(new Attribute("color",primConfig.getVisitedNodeColor()));
     }
 
+    /**
+     * load visited node attributes from primconfig
+     */
     private void loadVisitedNodeAttributes() {
         visitedNodeAttributes.add(new Attribute("shape",primConfig.getVisitedNodeShape()));
         visitedNodeAttributes.add(new Attribute("color",primConfig.getVisitedNodeColor()));
         visitedNodeAttributes.add(new Attribute("style","filled"));
     }
 
+    /**
+     * load current node attributes from primconfig
+     */
     private void loadCurrentNodeAttributes() {
         currentNodeAttributes.add(new Attribute("style","filled"));
         currentNodeAttributes.add(new Attribute("color",primConfig.getCurrentNodeColor()));

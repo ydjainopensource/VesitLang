@@ -1,3 +1,8 @@
+
+/**
+ * Class to represent configuration used for Prim.
+ * Created by Yash Jain
+ */
 public class PrimConfig implements ActionConfig {
 
     private String currentEdgeColor = "red";

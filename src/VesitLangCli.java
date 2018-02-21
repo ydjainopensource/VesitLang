@@ -20,10 +20,10 @@ public class VesitLangCli {
 
     public static void main(String args[]) throws Exception{
 
-        String[] aargs = {"infile" };
+        String[] aargs = {"-v","infile" };
 
         // Initialize picocli
-        VesitLangCli vesitLangCli = CommandLine.populateCommand(new VesitLangCli(), args);
+        VesitLangCli vesitLangCli = CommandLine.populateCommand(new VesitLangCli(), aargs);
 
         // help requested
         if(usageHelpRequested){
@@ -34,7 +34,7 @@ public class VesitLangCli {
 
         // By default don't output anything
         String IROutName = "/dev/null";
-//        System.setOut(new PrintStream(new FileOutputStream(IROutName)));
+        System.setOut(new PrintStream(new FileOutputStream(IROutName)));
 
         if(verbose){
             System.err.println("Outputting logs to <filename>.log");

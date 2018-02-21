@@ -1,5 +1,9 @@
 import java.io.File;
 
+/**
+ * Class to represent configuration used for DFS.
+ * Created by Yash Jain
+ */
 public class DfsConfig implements ActionConfig {
     private String stackNodeColor = "aquamarine";
     private String stackNodeShape = "hexagon";

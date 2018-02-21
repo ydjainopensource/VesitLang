@@ -25,18 +25,18 @@ public class BFS {
 
         q.add(start);
         visited.add(start);
-        VesitLang.genImageAndPpt(graph,bfsConfig);
+        VesitLang.genImageAndPdf(graph,bfsConfig);
 
         while (!q.isEmpty()) {
 
             Node top = q.peek();
-            System.err.println(q);
+            System.out.println(q);
             top.removeAllAttributes();
             top.addAttribute(new Attribute("shape", bfsConfig.getCurrentNodeShape()));
             top.addAttribute(new Attribute("style", "filled"));
             top.addAttribute(new Attribute("color", bfsConfig.getCurrentNodeColor()));
 
-            VesitLang.genImageAndPpt(graph,bfsConfig);
+            VesitLang.genImageAndPdf(graph,bfsConfig);
 
             addToQueue(graph, top);
 
@@ -50,7 +50,7 @@ public class BFS {
             top.addAttribute(new Attribute("color",bfsConfig.getVisitedNodeColor()));
 
             q.remove();
-            VesitLang.genImageAndPpt(graph,bfsConfig);
+            VesitLang.genImageAndPdf(graph,bfsConfig);
 
         }
     }
@@ -70,8 +70,8 @@ public class BFS {
                     toNode.addAttribute(new Attribute("shape", bfsConfig.getQueuedNodeShape()));
                     toNode.addAttribute(new Attribute("style", "filled"));
                     toNode.addAttribute(new Attribute("color", bfsConfig.getQueuedNodeColor()));
-                    System.err.println("adding "+ toNode);
-                    VesitLang.genImageAndPpt(graph,bfsConfig);
+                    System.out.println("adding "+ toNode);
+                    VesitLang.genImageAndPdf(graph,bfsConfig);
 
                 }
             }

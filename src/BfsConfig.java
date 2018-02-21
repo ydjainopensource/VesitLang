@@ -1,5 +1,9 @@
 import java.io.File;
 
+/**
+ * Class to represent configuration used for BFS.
+ * Created by Yash Jain
+ */
 public class BfsConfig implements ActionConfig {
     private String visitedNodeColor = "grey60";
     private String queuedNodeColor = "aquamarine";

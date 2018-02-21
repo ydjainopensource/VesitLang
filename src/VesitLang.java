@@ -143,8 +143,12 @@ public class VesitLang {
         document.close();
     }
 
-
-    public static void genImageAndPpt(Graph graph, ActionConfig config) {
+    /**
+     * generate image and pdf from graph and given action config
+     * @param graph The internal representation to be printed
+     * @param config Action config to generate pdf
+     */
+    public static void genImageAndPdf(Graph graph, ActionConfig config) {
         try{
             Graphviz gv = new Graphviz();
             byte[] graphByteArray = gv.getGraphByteArray(graph, "png", config.getDpi());
@@ -168,6 +172,7 @@ public class VesitLang {
 
     public static void traversal(EvalListener elistener){
 
+        // Prim
         if (elistener.isPrim()) {
             Prim prim = new Prim();
             prim.loadPrimConfig(new PrimConfig());
@@ -175,7 +180,7 @@ public class VesitLang {
             prim.mst();
         }
 
-
+        // Kruskal
         if(elistener.isKruskal()) {
             Kruskal kruskal = new Kruskal();
             kruskal.loadKruskalConfig(elistener.getKruskalConfig());
@@ -183,7 +188,7 @@ public class VesitLang {
             kruskal.mst();
         }
 
-        // BFS.
+        // BFS
         if(elistener.isBfs()){
             System.out.println("call bfs");
 
@@ -192,15 +197,16 @@ public class VesitLang {
             bfs.bfs(elistener.getGraph(),elistener.getBfsStartNode());
         }
 
+        // DFS
         if(elistener.isDfs()){
-//            System.err.println("call dfs");
+            System.out.println("call dfs");
             DFS dfs = new DFS();
             dfs.loadDfsConfig(elistener.getDfsConfig());
             dfs.dfs(elistener.getGraph(),elistener.getDfsStartNode());
         }
 
         if(!(elistener.isBfs() || elistener.isDfs() || elistener.isPrim()||elistener.isKruskal())){
-            System.out.println("Default location is imagesDfs/0.png , dfs.pdf");
+            System.err.println("Default location is imagesDfs/0.png , dfs.pdf");
 
             try{
                 Graphviz gv = new Graphviz();
@@ -221,15 +227,5 @@ public class VesitLang {
             }
         }
 
-//        if (elistener.isPrim()) {
-//            Prim prim = new Prim();
-//            prim.loadPrimConfig(new PrimConfig());
-//            prim.setGraph(elistener.getGraph());
-//            prim.mst();
-//        }
-
-
     }
-
-
 }

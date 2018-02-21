@@ -86,11 +86,7 @@ from : STRING
 to  : STRING
    ;
 
-graph   :   GRAPH '{' edges '}' action_list
-//        | GRAPH '{' edges '}' dfs
-//        | GRAPH '{' edges '}' bfs dfs
-//        | GRAPH '{' edges '}' dfs bfs
-//        | GRAPH '{' edges '}' action*
+graph   : GRAPH '{' edges '}' action_list
         | GRAPH '{' edges '}'
         ;
 

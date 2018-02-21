@@ -1,5 +1,3 @@
-import com.sun.istack.internal.NotNull;
-
 import java.io.File;
 import java.util.*;
 
@@ -36,7 +34,7 @@ public class DFS {
         start.addAttribute(new Attribute("style", "filled"));
         start.addAttribute(new Attribute("color", dfsConfig.getStackNodeColor()));
 
-        VesitLang.genImageAndPpt(graph,dfsConfig);
+        VesitLang.genImageAndPdf(graph,dfsConfig);
 
         for (Edge e : graph.getEdgeList()) {
             Node toNode = e.getToNode();
@@ -52,7 +50,7 @@ public class DFS {
         start.addAttribute(new Attribute("shape", dfsConfig.getVisitedNodeShape()));
         start.addAttribute(new Attribute("style", "filled"));
         start.addAttribute(new Attribute("color", dfsConfig.getVisitedNodeColor()));
-        VesitLang.genImageAndPpt(graph,dfsConfig);
+        VesitLang.genImageAndPdf(graph,dfsConfig);
         stack.pop();
     }
 }

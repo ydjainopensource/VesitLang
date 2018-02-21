@@ -134,7 +134,7 @@ public class EvalListener extends VesitLangBaseListener {
             edge.addAttribute(new Attribute("label",ctx.INT().toString()));
             edge.addAttribute(new Attribute("fontsize","12"));
             edge.setWeight(new Integer(ctx.INT().toString()));
-            System.err.println("edge weight "+ edge.getWeight());
+            System.out.println("edge weight "+ edge.getWeight());
         }
         if(!nodes.contains(from)) {
             graph.addNode(from);

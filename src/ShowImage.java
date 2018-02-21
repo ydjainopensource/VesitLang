@@ -35,8 +35,8 @@ public class ShowImage {
                 catch (Exception e)
                 {
                     System.err.println(filename);
-                    System.out.println("Failed to display Image");
-                    System.out.println("Abort!!!");
+                    System.err.println("Failed to display Image");
+                    System.err.println("Abort!!!");
                     e.printStackTrace();
                     System.exit(1);
                 }

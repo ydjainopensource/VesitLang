@@ -32,7 +32,7 @@ public class Kruskal {
     }
 
     void mst(){
-        System.err.println("in mst");
+        System.out.println("in mst");
 
         Set<Edge> edges = new TreeSet<>(new WeightComparator());
         edges.addAll(getGraph().getEdgeList());
@@ -62,7 +62,7 @@ public class Kruskal {
                 visited.add(toNode);
                 visited.add(fromNode);
 
-                System.err.println(fromNode +"\t" + toNode);
+                System.out.println(fromNode +"\t" + toNode);
 
                 currentEdge.addAttributes(currentEdgeAttributes);
 
@@ -74,7 +74,7 @@ public class Kruskal {
 
 //                assert !(toNode.equals(fromNode));
 
-                VesitLang.genImageAndPpt(getGraph(),kruskalConfig);
+                VesitLang.genImageAndPdf(getGraph(),kruskalConfig);
 
                 currentEdge.removeAttributes(currentEdgeAttributes);
                 currentEdge.addAttributes(visitedEdgeAttributes);
@@ -96,7 +96,7 @@ public class Kruskal {
         e.removeAttributes(currentEdgeAttributes);
         e.removeAttributes(visitedEdgeAttributes);
 
-        VesitLang.genImageAndPpt(getGraph(),kruskalConfig);
+        VesitLang.genImageAndPdf(getGraph(),kruskalConfig);
 
         for(Edge edge :edges) edge.removeAttributes(visitedEdgeAttributes);
 
