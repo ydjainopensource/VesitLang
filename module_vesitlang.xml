@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_vesitlang" default="compile.module.vesitlang">
+  <dirname property="module.vesitlang.basedir" file="${ant.file.module_vesitlang}"/>
+  
+  <property name="module.jdk.home.vesitlang" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.vesitlang" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.vesitlang" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.vesitlang" value="-encoding UTF-8 -source 1.8 -target 1.8 ${compiler.args}"/>
+  
+  <property name="vesitlang.output.dir" value="${module.vesitlang.basedir}/out/production/vesitLang"/>
+  <property name="vesitlang.testoutput.dir" value="${module.vesitlang.basedir}/out/test/vesitLang"/>
+  
+  <path id="vesitlang.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="vesitlang.module.production.classpath">
+    <path refid="${module.jdk.classpath.vesitlang}"/>
+    <path refid="library.antlr-4.7-complete.classpath"/>
+    <path refid="library.com.itextpdf:hyph:7.1.0.classpath"/>
+    <path refid="library.com.itextpdf:layout:7.1.0.classpath"/>
+  </path>
+  
+  <path id="vesitlang.runtime.production.module.classpath">
+    <pathelement location="${vesitlang.output.dir}"/>
+    <path refid="library.antlr-4.7-complete.classpath"/>
+    <path refid="library.com.itextpdf:hyph:7.1.0.classpath"/>
+    <path refid="library.com.itextpdf:layout:7.1.0.classpath"/>
+  </path>
+  
+  <path id="vesitlang.module.classpath">
+    <path refid="${module.jdk.classpath.vesitlang}"/>
+    <pathelement location="${vesitlang.output.dir}"/>
+    <path refid="library.antlr-4.7-complete.classpath"/>
+    <path refid="library.com.itextpdf:hyph:7.1.0.classpath"/>
+    <path refid="library.com.itextpdf:layout:7.1.0.classpath"/>
+  </path>
+  
+  <path id="vesitlang.runtime.module.classpath">
+    <pathelement location="${vesitlang.testoutput.dir}"/>
+    <pathelement location="${vesitlang.output.dir}"/>
+    <path refid="library.antlr-4.7-complete.classpath"/>
+    <path refid="library.com.itextpdf:hyph:7.1.0.classpath"/>
+    <path refid="library.com.itextpdf:layout:7.1.0.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.vesitlang">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.vesitlang">
+    <patternset refid="excluded.from.module.vesitlang"/>
+  </patternset>
+  
+  <path id="vesitlang.module.sourcepath">
+    <dirset dir="${module.vesitlang.basedir}">
+      <include name="src"/>
+      <include name="gen"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.vesitlang" depends="compile.module.vesitlang.production,compile.module.vesitlang.tests" description="Compile module vesitLang"/>
+  
+  <target name="compile.module.vesitlang.production" depends="register.custom.compilers" description="Compile module vesitLang; production classes">
+    <mkdir dir="${vesitlang.output.dir}"/>
+    <javac2 destdir="${vesitlang.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.vesitlang}/javac">
+      <compilerarg line="${compiler.args.vesitlang}"/>
+      <bootclasspath refid="vesitlang.module.bootclasspath"/>
+      <classpath refid="vesitlang.module.production.classpath"/>
+      <src refid="vesitlang.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.vesitlang"/>
+    </javac2>
+    
+    <copy todir="${vesitlang.output.dir}">
+      <fileset dir="${module.vesitlang.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.vesitlang.basedir}/gen">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.vesitlang.tests" depends="register.custom.compilers,compile.module.vesitlang.production" description="compile module vesitLang; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.vesitlang" description="cleanup module">
+    <delete dir="${vesitlang.output.dir}"/>
+    <delete dir="${vesitlang.testoutput.dir}"/>
+  </target>
+</project>

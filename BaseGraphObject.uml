@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>BaseGraphObject</OriginalElement>
+  <nodes>
+    <node x="1224.5504797979797" y="626.0">KruskalConfig</node>
+    <node x="878.0463383838384" y="436.5">ActionConfig</node>
+    <node x="136.25467171717168" y="154.0">BaseGraphObject</node>
+    <node x="217.55047979797968" y="697.0">Graph</node>
+    <node x="981.5504797979796" y="674.0">DfsConfig</node>
+    <node x="339.7749747474747" y="1095.0">EvalListener</node>
+    <node x="0.0" y="309.0">Node</node>
+    <node x="99.75467171717168" y="0.0">AttributeNotFondException</node>
+    <node x="733.5504797979797" y="626.0">PrimConfig</node>
+    <node x="484.5504797979797" y="650.0">BfsConfig</node>
+    <node x="73.25881313131305" y="424.0">Edge</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="EvalListener" target="PrimConfig">
+      <point x="28.295454545454504" y="-196.0" />
+      <point x="492.5704292929292" y="995.0" />
+      <point x="771.5504797979797" y="995.0" />
+      <point x="-76.0" y="159.5" />
+    </edge>
+    <edge source="Graph" target="BaseGraphObject">
+      <point x="102.91666666666674" y="-88.5" />
+      <point x="443.9671464646464" y="596.0" />
+      <point x="398.96300505050505" y="596.0" />
+      <point x="398.96300505050505" y="279.0" />
+      <point x="360.83800505050493" y="279.0" />
+      <point x="102.08333333333326" y="52.5" />
+    </edge>
+    <edge source="KruskalConfig" target="ActionConfig">
+      <point x="0.0" y="-159.5" />
+      <point x="1338.5504797979797" y="596.0" />
+      <point x="1039.9213383838382" y="596.0" />
+      <point x="69.375" y="63.5" />
+    </edge>
+    <edge source="Edge" target="Node">
+      <point x="-92.625" y="-76.0" />
+      <point x="104.13381313131305" y="404.0" />
+      <point x="90.5625" y="404.0" />
+      <point x="10.0625" y="27.5" />
+    </edge>
+    <edge source="EvalListener" target="Edge">
+      <point x="-50.93181818181813" y="-196.0" />
+      <point x="413.34315656565656" y="1015.0" />
+      <point x="158.35881313131307" y="1015.0" />
+      <point x="158.35881313131307" y="606.0" />
+      <point x="196.75881313131305" y="606.0" />
+      <point x="0.0" y="76.0" />
+    </edge>
+    <edge source="EvalListener" target="BfsConfig">
+      <point x="16.977272727272748" y="-196.0" />
+      <point x="481.25224747474743" y="985.0" />
+      <point x="675.383813131313" y="985.0" />
+      <point x="76.33333333333326" y="135.5" />
+    </edge>
+    <edge source="PrimConfig" target="ActionConfig">
+      <point x="0.0" y="-159.5" />
+      <point x="847.5504797979797" y="606.0" />
+      <point x="947.4213383838384" y="606.0" />
+      <point x="-23.125" y="63.5" />
+    </edge>
+    <edge source="Graph" target="Edge">
+      <point x="-102.91666666666663" y="-88.5" />
+      <point x="238.13381313131305" y="606.0" />
+      <point x="246.15881313131314" y="606.0" />
+      <point x="49.40000000000009" y="76.0" />
+    </edge>
+    <edge source="Graph" target="Node">
+      <point x="20.583333333333258" y="-88.5" />
+      <point x="361.63381313131293" y="606.0" />
+      <point x="373.6374747474747" y="606.0" />
+      <point x="373.6374747474747" y="384.0" />
+      <point x="150.9375" y="384.0" />
+      <point x="70.4375" y="27.5" />
+    </edge>
+    <edge source="DfsConfig" target="ActionConfig">
+      <point x="0.0" y="-111.5" />
+      <point x="1093.0504797979797" y="606.0" />
+      <point x="993.6713383838384" y="606.0" />
+      <point x="23.125" y="63.5" />
+    </edge>
+    <edge source="BaseGraphObject" target="AttributeNotFondException">
+      <point x="0.0" y="-52.5" />
+      <point x="0.0" y="52.0" />
+    </edge>
+    <edge source="Edge" target="BaseGraphObject">
+      <point x="92.625" y="-76.0" />
+      <point x="289.38381313131305" y="404.0" />
+      <point x="270.5124747474747" y="404.0" />
+      <point x="270.5124747474747" y="289.0" />
+      <point x="279.1713383838384" y="289.0" />
+      <point x="20.416666666666742" y="52.5" />
+    </edge>
+    <edge source="Node" target="BaseGraphObject">
+      <point x="-40.25" y="-27.5" />
+      <point x="40.25" y="279.0" />
+      <point x="156.67133838383842" y="279.0" />
+      <point x="-102.08333333333326" y="52.5" />
+    </edge>
+    <edge source="EvalListener" target="DfsConfig">
+      <point x="84.88636363636374" y="-196.0" />
+      <point x="549.1613383838385" y="1045.0" />
+      <point x="1167.3838131313128" y="1045.0" />
+      <point x="74.33333333333331" y="111.5" />
+    </edge>
+    <edge source="BfsConfig" target="ActionConfig">
+      <point x="0.0" y="-135.5" />
+      <point x="599.0504797979797" y="596.0" />
+      <point x="901.1713383838384" y="596.0" />
+      <point x="-69.375" y="63.5" />
+    </edge>
+    <edge source="EvalListener" target="Node">
+      <point x="-96.20454545454538" y="-196.0" />
+      <point x="368.0704292929293" y="1055.0" />
+      <point x="51.75881313131305" y="1055.0" />
+      <point x="51.75881313131305" y="404.0" />
+      <point x="50.3125" y="404.0" />
+      <point x="-30.1875" y="27.5" />
+    </edge>
+    <edge source="EvalListener" target="KruskalConfig">
+      <point x="96.2045454545455" y="-196.0" />
+      <point x="560.4795202020202" y="1055.0" />
+      <point x="1262.5504797979797" y="1055.0" />
+      <point x="-76.0" y="159.5" />
+    </edge>
+    <edge source="EvalListener" target="Graph">
+      <point x="-28.295454545454504" y="-196.0" />
+      <point x="435.9795202020202" y="995.0" />
+      <point x="341.0504797979797" y="995.0" />
+      <point x="0.0" y="88.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.5000000000000001" x="663.5952380952372" y="786.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
