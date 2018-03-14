@@ -1,17 +1,17 @@
 Started Processing file : infile
-enterEveryRule graph{fromatobcost34frombtoecost100fromatoccost123fromatodcost456frometofcost4fromdtoecost789fromxtoycost150}bfsa{bfsQueuedNodeColor=khakibfsQueuedNodeShape=squarebfsOutImageDir=imagesBfs/bfsPptName=c.pdf}dfsa{dfsStackNodeColor=khakidfsStackNodeShape=squaredfsOutImageDir=imagesDfs/dfsPptName=d.pdf}kruskal{kruskalOutImageDir=imagesKruskal/kruskalPptName=k.pdf}prim{primOutImageDir=imagesPrim/}
+enterEveryRule graph{frombtoecost100fromatobcost34fromatoccost123fromatodcost456frometofcost4fromdtoecost789fromxtoycost150}
 in enter graph
-enterEveryRule fromatobcost34frombtoecost100fromatoccost123fromatodcost456frometofcost4fromdtoecost789fromxtoycost150
-enterEveryRule fromatobcost34
-enterEveryRule a
-enterEveryRule b
-inside exit edge 
-edge weight 34
+enterEveryRule frombtoecost100fromatobcost34fromatoccost123fromatodcost456frometofcost4fromdtoecost789fromxtoycost150
 enterEveryRule frombtoecost100
 enterEveryRule b
 enterEveryRule e
 inside exit edge 
 edge weight 100
+enterEveryRule fromatobcost34
+enterEveryRule a
+enterEveryRule b
+inside exit edge 
+edge weight 34
 enterEveryRule fromatoccost123
 enterEveryRule a
 enterEveryRule c
@@ -37,65 +37,4 @@ enterEveryRule x
 enterEveryRule y
 inside exit edge 
 edge weight 150
-enterEveryRule bfsa{bfsQueuedNodeColor=khakibfsQueuedNodeShape=squarebfsOutImageDir=imagesBfs/bfsPptName=c.pdf}dfsa{dfsStackNodeColor=khakidfsStackNodeShape=squaredfsOutImageDir=imagesDfs/dfsPptName=d.pdf}kruskal{kruskalOutImageDir=imagesKruskal/kruskalPptName=k.pdf}prim{primOutImageDir=imagesPrim/}
-enterEveryRule bfsa{bfsQueuedNodeColor=khakibfsQueuedNodeShape=squarebfsOutImageDir=imagesBfs/bfsPptName=c.pdf}
-enterEveryRule bfsa{bfsQueuedNodeColor=khakibfsQueuedNodeShape=squarebfsOutImageDir=imagesBfs/bfsPptName=c.pdf}
-exit bfs
-enterEveryRule bfsQueuedNodeColor=khaki
-enterEveryRule bfsQueuedNodeColor=khaki
-enterEveryRule bfsQueuedNodeShape=square
-enterEveryRule bfsQueuedNodeShape=square
-enterEveryRule bfsOutImageDir=imagesBfs/
-enterEveryRule bfsOutImageDir=imagesBfs/
-enterEveryRule bfsPptName=c.pdf
-enterEveryRule bfsPptName=c.pdf
-bfs ppt name : c.pdf
-enterEveryRule dfsa{dfsStackNodeColor=khakidfsStackNodeShape=squaredfsOutImageDir=imagesDfs/dfsPptName=d.pdf}kruskal{kruskalOutImageDir=imagesKruskal/kruskalPptName=k.pdf}prim{primOutImageDir=imagesPrim/}
-enterEveryRule dfsa{dfsStackNodeColor=khakidfsStackNodeShape=squaredfsOutImageDir=imagesDfs/dfsPptName=d.pdf}
-enterEveryRule dfsa{dfsStackNodeColor=khakidfsStackNodeShape=squaredfsOutImageDir=imagesDfs/dfsPptName=d.pdf}
-enterEveryRule dfsStackNodeColor=khaki
-enterEveryRule dfsStackNodeColor=khaki
-enterEveryRule dfsStackNodeShape=square
-enterEveryRule dfsStackNodeShape=square
-enterEveryRule dfsOutImageDir=imagesDfs/
-enterEveryRule dfsOutImageDir=imagesDfs/
-enterEveryRule dfsPptName=d.pdf
-enterEveryRule dfsPptName=d.pdf
-setting DFS PPT name to d.pdf
-enterEveryRule kruskal{kruskalOutImageDir=imagesKruskal/kruskalPptName=k.pdf}prim{primOutImageDir=imagesPrim/}
-enterEveryRule kruskal{kruskalOutImageDir=imagesKruskal/kruskalPptName=k.pdf}
-enterEveryRule kruskal{kruskalOutImageDir=imagesKruskal/kruskalPptName=k.pdf}
-enterEveryRule kruskalOutImageDir=imagesKruskal/
-enterEveryRule kruskalOutImageDir=imagesKruskal/
-enterEveryRule kruskalPptName=k.pdf
-enterEveryRule kruskalPptName=k.pdf
-kruskal ppt name : k.pdf
-enterEveryRule prim{primOutImageDir=imagesPrim/}
-enterEveryRule prim{primOutImageDir=imagesPrim/}
-enterEveryRule prim{primOutImageDir=imagesPrim/}
-enterEveryRule primOutImageDir=imagesPrim/
-enterEveryRule primOutImageDir=imagesPrim/
-previousNode  currentNode a
-previousNode a currentNode b
-previousNode b currentNode e
-previousNode e currentNode f
-in mst
-e	f
-a	b
-a	c
-x	y
-a	d
-call bfs
-[a]
-adding b
-adding c
-adding d
-[b, c, d]
-adding e
-[c, d, e]
-[d, e]
-[e]
-adding f
-[f]
-call dfs
 Proccessed File : infile

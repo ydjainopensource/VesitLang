@@ -1,3 +1,12 @@
 .idea/*
 out/*
-
+imagesBfs/
+imagesDfs/
+imageBfs/
+imageDfs/
+imageKruskal/
+imagesKruskal/
+**/*.pdf
+**/*.png
+dotfiles/*
+**/*.log

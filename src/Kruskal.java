@@ -56,8 +56,8 @@ public class Kruskal {
             toNode = currentEdge.getToNode();
             fromNode = currentEdge.getFromNode();
 
-            if(!(visited.contains(fromNode)
-                && visited.contains(toNode))){
+            if( (!visited.contains(fromNode))
+                || (!visited.contains(toNode)) ) {
 
                 visited.add(toNode);
                 visited.add(fromNode);

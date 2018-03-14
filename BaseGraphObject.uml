@@ -3,143 +3,555 @@
   <ID>JAVA</ID>
   <OriginalElement>BaseGraphObject</OriginalElement>
   <nodes>
-    <node x="1224.5504797979797" y="626.0">KruskalConfig</node>
-    <node x="878.0463383838384" y="436.5">ActionConfig</node>
-    <node x="136.25467171717168" y="154.0">BaseGraphObject</node>
-    <node x="217.55047979797968" y="697.0">Graph</node>
-    <node x="981.5504797979796" y="674.0">DfsConfig</node>
-    <node x="339.7749747474747" y="1095.0">EvalListener</node>
-    <node x="0.0" y="309.0">Node</node>
-    <node x="99.75467171717168" y="0.0">AttributeNotFondException</node>
-    <node x="733.5504797979797" y="626.0">PrimConfig</node>
-    <node x="484.5504797979797" y="650.0">BfsConfig</node>
-    <node x="73.25881313131305" y="424.0">Edge</node>
+    <node x="742.3495141773075" y="2031.0">KruskalConfig</node>
+    <node x="2403.005569816183" y="2066.5">DfsConfig</node>
+    <node x="838.9247378361931" y="106.0">Attribute</node>
+    <node x="1141.0894370663882" y="2571.0">EvalListener</node>
+    <node x="1643.2579249025812" y="695.0">Node</node>
+    <node x="2136.4946453997213" y="4199.0">VesitLang</node>
+    <node x="1397.2528628361933" y="130.5">AttributeNotFondException</node>
+    <node x="2455.2019589934903" y="3219.5">BFS</node>
+    <node x="2461.666688593769" y="155.0">GraphException</node>
+    <node x="3080.7480769230765" y="3219.5">DFS</node>
+    <node x="993.3495141773075" y="1378.0">WeightComparator</node>
+    <node x="492.34951417730736" y="2031.0">PrimConfig</node>
+    <node x="2151.005569816183" y="2042.5">BfsConfig</node>
+    <node x="2093.213563593769" y="0.0">GraphvizApiException</node>
+    <node x="0.0" y="3147.0">Prim</node>
+    <node x="2207.1" y="1639.5">ActionConfig</node>
+    <node x="2765.2019589934903" y="2065.5">Graphviz</node>
+    <node x="1384.0894370663882" y="1378.0">BaseGraphObjectNotFoundException</node>
+    <node x="3247.2019589934903" y="2163.0">DfsStack</node>
+    <node x="1274.7528628361933" y="350.0">BaseGraphObject</node>
+    <node x="1802.0894370663882" y="1506.0">Graph</node>
+    <node x="355.0" y="3147.0">Kruskal</node>
+    <node x="2035.8863120663882" y="1366.0">GraphType</node>
+    <node x="3384.7480769230765" y="3292.0">ShowImage</node>
+    <node x="1103.0894370663882" y="992.0">Edge</node>
+    <node x="2185.494645399721" y="4449.0">VesitLangCli</node>
   </nodes>
   <notes />
   <edges>
+    <edge source="DFS" target="Graph">
+      <point x="-21.84615384615381" y="-100.5" />
+      <point x="3200.9019230769227" y="2431.0" />
+      <point x="3181.7019589934903" y="2431.0" />
+      <point x="3181.7019589934903" y="1921.0" />
+      <point x="2051.2258007027517" y="1921.0" />
+      <point x="118.63636363636351" y="197.5" />
+    </edge>
     <edge source="EvalListener" target="PrimConfig">
-      <point x="28.295454545454504" y="-196.0" />
-      <point x="492.5704292929292" y="995.0" />
-      <point x="771.5504797979797" y="995.0" />
-      <point x="-76.0" y="159.5" />
+      <point x="-275.0" y="-749.0" />
+      <point x="1152.0894370663882" y="2511.0" />
+      <point x="640.20665703445" y="2511.0" />
+      <point x="32.85714285714266" y="160.0" />
     </edge>
-    <edge source="Graph" target="BaseGraphObject">
-      <point x="102.91666666666674" y="-88.5" />
-      <point x="443.9671464646464" y="596.0" />
-      <point x="398.96300505050505" y="596.0" />
-      <point x="398.96300505050505" y="279.0" />
-      <point x="360.83800505050493" y="279.0" />
-      <point x="102.08333333333326" y="52.5" />
+    <edge source="Graph" target="GraphType">
+      <point x="118.63636363636351" y="-197.5" />
+      <point x="2051.2258007027517" y="1486.0" />
+      <point x="2082.386312066388" y="1486.0" />
+      <point x="-15.5" y="40.0" />
     </edge>
-    <edge source="KruskalConfig" target="ActionConfig">
-      <point x="0.0" y="-159.5" />
-      <point x="1338.5504797979797" y="596.0" />
-      <point x="1039.9213383838382" y="596.0" />
-      <point x="69.375" y="63.5" />
+    <edge source="VesitLang" target="Kruskal">
+      <point x="-102.84999999999968" y="-100.0" />
+      <point x="2220.6446453997214" y="4139.0" />
+      <point x="524.0" y="4139.0" />
+      <point x="0.0" y="173.0" />
     </edge>
-    <edge source="Edge" target="Node">
-      <point x="-92.625" y="-76.0" />
-      <point x="104.13381313131305" y="404.0" />
-      <point x="90.5625" y="404.0" />
-      <point x="10.0625" y="27.5" />
+    <edge source="WeightComparator" target="Edge">
+      <point x="0.0" y="-28.0" />
+      <point x="1113.3495141773074" y="1346.0" />
+      <point x="1165.3394370663882" y="1346.0" />
+      <point x="-62.25" y="137.0" />
     </edge>
     <edge source="EvalListener" target="Edge">
-      <point x="-50.93181818181813" y="-196.0" />
-      <point x="413.34315656565656" y="1015.0" />
-      <point x="158.35881313131307" y="1015.0" />
-      <point x="158.35881313131307" y="606.0" />
-      <point x="196.75881313131305" y="606.0" />
-      <point x="0.0" y="76.0" />
+      <point x="-99.0" y="-749.0" />
+      <point x="1328.0894370663882" y="2431.0" />
+      <point x="1243.8495141773074" y="2431.0" />
+      <point x="1243.8495141773074" y="1346.0" />
+      <point x="1190.2394370663883" y="1346.0" />
+      <point x="-37.34999999999991" y="137.0" />
     </edge>
-    <edge source="EvalListener" target="BfsConfig">
-      <point x="16.977272727272748" y="-196.0" />
-      <point x="481.25224747474743" y="985.0" />
-      <point x="675.383813131313" y="985.0" />
-      <point x="76.33333333333326" y="135.5" />
+    <edge source="VesitLang" target="PrimConfig">
+      <point x="-65.44999999999959" y="-100.0" />
+      <point x="2258.0446453997215" y="4119.0" />
+      <point x="703.5000000000001" y="4119.0" />
+      <point x="703.5000000000001" y="2521.0" />
+      <point x="607.3495141773074" y="2521.0" />
+      <point x="0.0" y="160.0" />
     </edge>
-    <edge source="PrimConfig" target="ActionConfig">
-      <point x="0.0" y="-159.5" />
-      <point x="847.5504797979797" y="606.0" />
-      <point x="947.4213383838384" y="606.0" />
-      <point x="-23.125" y="63.5" />
+    <edge source="BFS" target="BfsConfig">
+      <point x="-101.14999999999986" y="-100.5" />
+      <point x="2498.55195899349" y="2511.0" />
+      <point x="2324.255569816183" y="2511.0" />
+      <point x="57.75" y="148.5" />
     </edge>
-    <edge source="Graph" target="Edge">
-      <point x="-102.91666666666663" y="-88.5" />
-      <point x="238.13381313131305" y="606.0" />
-      <point x="246.15881313131314" y="606.0" />
-      <point x="49.40000000000009" y="76.0" />
+    <edge source="BFS" target="Edge">
+      <point x="-14.450000000000045" y="-100.5" />
+      <point x="2585.25195899349" y="2501.0" />
+      <point x="2638.505569816183" y="2501.0" />
+      <point x="2638.505569816183" y="1296.0" />
+      <point x="1314.7394370663883" y="1296.0" />
+      <point x="87.15000000000009" y="137.0" />
     </edge>
-    <edge source="Graph" target="Node">
-      <point x="20.583333333333258" y="-88.5" />
-      <point x="361.63381313131293" y="606.0" />
-      <point x="373.6374747474747" y="606.0" />
-      <point x="373.6374747474747" y="384.0" />
-      <point x="150.9375" y="384.0" />
-      <point x="70.4375" y="27.5" />
+    <edge source="Prim" target="Graph">
+      <point x="69.79166666666652" y="-173.0" />
+      <point x="237.29166666666652" y="2551.0" />
+      <point x="230.78549405860713" y="2551.0" />
+      <point x="230.78549405860713" y="1961.0" />
+      <point x="1837.6803461572972" y="1961.0" />
+      <point x="-94.90909090909099" y="197.5" />
+    </edge>
+    <edge source="Graph" target="WeightComparator">
+      <point x="-118.63636363636351" y="-197.5" />
+      <point x="1813.9530734300247" y="1486.0" />
+      <point x="1203.3495141773074" y="1486.0" />
+      <point x="90.0" y="28.0" />
     </edge>
     <edge source="DfsConfig" target="ActionConfig">
-      <point x="0.0" y="-111.5" />
-      <point x="1093.0504797979797" y="606.0" />
-      <point x="993.6713383838384" y="606.0" />
-      <point x="23.125" y="63.5" />
+      <point x="0.0" y="-124.5" />
+      <point x="2515.505569816183" y="1951.0" />
+      <point x="2338.0" y="1951.0" />
+      <point x="37.40000000000009" y="64.0" />
     </edge>
-    <edge source="BaseGraphObject" target="AttributeNotFondException">
-      <point x="0.0" y="-52.5" />
-      <point x="0.0" y="52.0" />
-    </edge>
-    <edge source="Edge" target="BaseGraphObject">
-      <point x="92.625" y="-76.0" />
-      <point x="289.38381313131305" y="404.0" />
-      <point x="270.5124747474747" y="404.0" />
-      <point x="270.5124747474747" y="289.0" />
-      <point x="279.1713383838384" y="289.0" />
-      <point x="20.416666666666742" y="52.5" />
+    <edge source="BFS" target="Attribute">
+      <point x="72.25" y="-100.5" />
+      <point x="2671.9519589934903" y="2531.0" />
+      <point x="2705.6" y="2531.0" />
+      <point x="2705.6" y="300.0" />
+      <point x="1038.0914045028596" y="300.0" />
+      <point x="79.66666666666652" y="77.0" />
     </edge>
     <edge source="Node" target="BaseGraphObject">
-      <point x="-40.25" y="-27.5" />
-      <point x="40.25" y="279.0" />
-      <point x="156.67133838383842" y="279.0" />
-      <point x="-102.08333333333326" y="52.5" />
+      <point x="-57.75" y="-88.5" />
+      <point x="1701.0079249025812" y="675.0" />
+      <point x="1465.4403628361933" y="675.0" />
+      <point x="21.1875" y="137.5" />
+    </edge>
+    <edge source="Kruskal" target="WeightComparator">
+      <point x="0.0" y="-173.0" />
+      <point x="524.0" y="2471.0" />
+      <point x="378.5313323591258" y="2471.0" />
+      <point x="378.5313323591258" y="1486.0" />
+      <point x="1083.3495141773074" y="1486.0" />
+      <point x="-30.0" y="28.0" />
+    </edge>
+    <edge source="BFS" target="VesitLang">
+      <point x="96.33333333333326" y="100.5" />
+      <point x="2696.0352923268238" y="4109.0" />
+      <point x="2370.2446453997213" y="4109.0" />
+      <point x="46.75000000000023" y="-100.0" />
+    </edge>
+    <edge source="GraphException" target="GraphvizApiException">
+      <point x="59.25" y="-28.0" />
+      <point x="2639.416688593769" y="76.0" />
+      <point x="2337.338563593769" y="76.0" />
+      <point x="104.625" y="28.0" />
+    </edge>
+    <edge source="VesitLang" target="Prim">
+      <point x="-177.64999999999964" y="-100.0" />
+      <point x="2145.8446453997217" y="4179.0" />
+      <point x="55.833333333333485" y="4179.0" />
+      <point x="-111.66666666666652" y="173.0" />
+    </edge>
+    <edge source="Kruskal" target="Node">
+      <point x="-61.454545454545496" y="-173.0" />
+      <point x="462.5454545454545" y="2491.0" />
+      <point x="314.364174902581" y="2491.0" />
+      <point x="314.364174902581" y="932.0" />
+      <point x="1679.3516749025812" y="932.0" />
+      <point x="-79.40625" y="88.5" />
+    </edge>
+    <edge source="Prim" target="Attribute">
+      <point x="-153.54166666666697" y="-173.0" />
+      <point x="13.95833333333303" y="2531.0" />
+      <point x="56.25" y="2531.0" />
+      <point x="56.25" y="300.0" />
+      <point x="852.202515613971" y="300.0" />
+      <point x="-106.22222222222217" y="77.0" />
+    </edge>
+    <edge source="Kruskal" target="KruskalConfig">
+      <point x="92.18181818181802" y="-173.0" />
+      <point x="616.181818181818" y="2531.0" />
+      <point x="761.516180843974" y="2531.0" />
+      <point x="-95.83333333333348" y="160.0" />
+    </edge>
+    <edge source="Graph" target="BaseGraphObject">
+      <point x="23.727272727272748" y="-197.5" />
+      <point x="1956.3167097936607" y="1476.0" />
+      <point x="1983.0425620663882" y="1476.0" />
+      <point x="1983.0425620663882" y="655.0" />
+      <point x="1550.1903628361933" y="655.0" />
+      <point x="105.9375" y="137.5" />
+    </edge>
+    <edge source="Prim" target="VesitLang">
+      <point x="111.66666666666652" y="173.0" />
+      <point x="279.1666666666665" y="4159.0" />
+      <point x="2183.2446453997213" y="4159.0" />
+      <point x="-140.24999999999977" y="-100.0" />
+    </edge>
+    <edge source="Kruskal" target="VesitLang">
+      <point x="112.66666666666652" y="173.0" />
+      <point x="636.6666666666665" y="4129.0" />
+      <point x="2239.3446453997217" y="4129.0" />
+      <point x="-84.14999999999964" y="-100.0" />
+    </edge>
+    <edge source="DFS" target="Edge">
+      <point x="0.0" y="-100.5" />
+      <point x="3222.7480769230765" y="2421.0" />
+      <point x="3192.7019589934903" y="2421.0" />
+      <point x="3192.7019589934903" y="1286.0" />
+      <point x="1339.6394370663884" y="1286.0" />
+      <point x="112.05000000000018" y="137.0" />
+    </edge>
+    <edge source="Kruskal" target="Attribute">
+      <point x="-153.6363636363635" y="-173.0" />
+      <point x="370.3636363636365" y="2521.0" />
+      <point x="281.364174902581" y="2521.0" />
+      <point x="281.364174902581" y="320.0" />
+      <point x="905.3136267250818" y="320.0" />
+      <point x="-53.11111111111131" y="77.0" />
+    </edge>
+    <edge source="EvalListener" target="BfsConfig">
+      <point x="209.0" y="-749.0" />
+      <point x="1636.0894370663882" y="2521.0" />
+      <point x="2247.255569816183" y="2521.0" />
+      <point x="-19.25" y="148.5" />
+    </edge>
+    <edge source="PrimConfig" target="ActionConfig">
+      <point x="0.0" y="-160.0" />
+      <point x="607.3495141773074" y="1991.0" />
+      <point x="2225.7999999999997" y="1991.0" />
+      <point x="-74.80000000000018" y="64.0" />
+    </edge>
+    <edge source="Prim" target="PrimConfig">
+      <point x="97.70833333333348" y="-173.0" />
+      <point x="265.2083333333335" y="2531.0" />
+      <point x="508.7780856058789" y="2531.0" />
+      <point x="-98.57142857142844" y="160.0" />
+    </edge>
+    <edge source="EvalListener" target="Attribute">
+      <point x="-143.0" y="-749.0" />
+      <point x="1284.0894370663882" y="2451.0" />
+      <point x="982.8495141773075" y="2451.0" />
+      <point x="982.8495141773075" y="330.0" />
+      <point x="958.4247378361931" y="330.0" />
+      <point x="0.0" y="77.0" />
+    </edge>
+    <edge source="VesitLang" target="ActionConfig">
+      <point x="65.45000000000005" y="-100.0" />
+      <point x="2388.944645399721" y="4119.0" />
+      <point x="2754.7019589934903" y="4119.0" />
+      <point x="2754.7019589934903" y="1941.0" />
+      <point x="2375.4" y="1941.0" />
+      <point x="74.80000000000018" y="64.0" />
+    </edge>
+    <edge source="DFS" target="Graphviz">
+      <point x="-65.53846153846155" y="-100.5" />
+      <point x="3157.209615384615" y="2451.0" />
+      <point x="3069.7019589934903" y="2451.0" />
+      <point x="101.5" y="125.5" />
+    </edge>
+    <edge source="Edge" target="BaseGraphObject">
+      <point x="-31.125" y="-137.0" />
+      <point x="1196.4644370663882" y="675.0" />
+      <point x="1423.0653628361933" y="675.0" />
+      <point x="-21.1875" y="137.5" />
+    </edge>
+    <edge source="DFS" target="DfsStack">
+      <point x="131.0769230769231" y="-100.5" />
+      <point x="3353.825" y="2551.0" />
+      <point x="3384.4519589934903" y="2551.0" />
+      <point x="45.75" y="28.0" />
+    </edge>
+    <edge source="Kruskal" target="Graph">
+      <point x="61.454545454545496" y="-173.0" />
+      <point x="585.4545454545455" y="2451.0" />
+      <point x="416.5313323591258" y="2451.0" />
+      <point x="416.5313323591258" y="1981.0" />
+      <point x="1885.1348916118427" y="1981.0" />
+      <point x="-47.454545454545496" y="197.5" />
+    </edge>
+    <edge source="BFS" target="Node">
+      <point x="14.450000000000045" y="-100.5" />
+      <point x="2614.1519589934906" y="2511.0" />
+      <point x="2649.505569816183" y="2511.0" />
+      <point x="2649.505569816183" y="932.0" />
+      <point x="1809.2891749025812" y="932.0" />
+      <point x="50.53125" y="88.5" />
     </edge>
     <edge source="EvalListener" target="DfsConfig">
-      <point x="84.88636363636374" y="-196.0" />
-      <point x="549.1613383838385" y="1045.0" />
-      <point x="1167.3838131313128" y="1045.0" />
-      <point x="74.33333333333331" y="111.5" />
-    </edge>
-    <edge source="BfsConfig" target="ActionConfig">
-      <point x="0.0" y="-135.5" />
-      <point x="599.0504797979797" y="596.0" />
-      <point x="901.1713383838384" y="596.0" />
-      <point x="-69.375" y="63.5" />
-    </edge>
-    <edge source="EvalListener" target="Node">
-      <point x="-96.20454545454538" y="-196.0" />
-      <point x="368.0704292929293" y="1055.0" />
-      <point x="51.75881313131305" y="1055.0" />
-      <point x="51.75881313131305" y="404.0" />
-      <point x="50.3125" y="404.0" />
-      <point x="-30.1875" y="27.5" />
+      <point x="253.0" y="-749.0" />
+      <point x="1680.0894370663882" y="2541.0" />
+      <point x="2459.255569816183" y="2541.0" />
+      <point x="-56.25" y="124.5" />
     </edge>
     <edge source="EvalListener" target="KruskalConfig">
-      <point x="96.2045454545455" y="-196.0" />
-      <point x="560.4795202020202" y="1055.0" />
-      <point x="1262.5504797979797" y="1055.0" />
-      <point x="-76.0" y="159.5" />
+      <point x="-209.0" y="-749.0" />
+      <point x="1218.0894370663882" y="2481.0" />
+      <point x="876.516180843974" y="2481.0" />
+      <point x="19.166666666666515" y="160.0" />
+    </edge>
+    <edge source="VesitLang" target="Graph">
+      <point x="-9.349999999999682" y="-100.0" />
+      <point x="2314.1446453997214" y="4089.0" />
+      <point x="2140.505569816183" y="4089.0" />
+      <point x="2140.505569816183" y="1971.0" />
+      <point x="1980.0439825209337" y="1971.0" />
+      <point x="47.454545454545496" y="197.5" />
+    </edge>
+    <edge source="Prim" target="WeightComparator">
+      <point x="13.958333333333485" y="-173.0" />
+      <point x="181.45833333333348" y="2521.0" />
+      <point x="122.25" y="2521.0" />
+      <point x="122.25" y="1476.0" />
+      <point x="1023.3495141773075" y="1476.0" />
+      <point x="-90.0" y="28.0" />
+    </edge>
+    <edge source="Graph" target="GraphException">
+      <point x="71.18181818181802" y="-197.5" />
+      <point x="2003.7712552482062" y="1486.0" />
+      <point x="2015.3863120663882" y="1486.0" />
+      <point x="2015.3863120663882" y="330.0" />
+      <point x="2520.916688593769" y="330.0" />
+      <point x="-59.25" y="28.0" />
+    </edge>
+    <edge source="Graphviz" target="Graph">
+      <point x="-135.33333333333337" y="-125.5" />
+      <point x="2832.868625660157" y="1931.0" />
+      <point x="2027.4985279754792" y="1931.0" />
+      <point x="94.90909090909099" y="197.5" />
+    </edge>
+    <edge source="EvalListener" target="WeightComparator">
+      <point x="-121.0" y="-749.0" />
+      <point x="1306.0894370663882" y="2441.0" />
+      <point x="1143.3495141773074" y="2441.0" />
+      <point x="30.0" y="28.0" />
+    </edge>
+    <edge source="BFS" target="Graph">
+      <point x="-43.34999999999991" y="-100.5" />
+      <point x="2556.3519589934904" y="2491.0" />
+      <point x="2392.505569816183" y="2491.0" />
+      <point x="2392.505569816183" y="1961.0" />
+      <point x="2003.7712552482062" y="1961.0" />
+      <point x="71.18181818181802" y="197.5" />
+    </edge>
+    <edge source="KruskalConfig" target="ActionConfig">
+      <point x="0.0" y="-160.0" />
+      <point x="857.3495141773075" y="2001.0" />
+      <point x="2263.2" y="2001.0" />
+      <point x="-37.40000000000009" y="64.0" />
+    </edge>
+    <edge source="Edge" target="Node">
+      <point x="31.125" y="-137.0" />
+      <point x="1258.7144370663882" y="942.0" />
+      <point x="1693.7891749025812" y="942.0" />
+      <point x="-64.96875" y="88.5" />
+    </edge>
+    <edge source="AttributeNotFondException" target="GraphvizApiException">
+      <point x="-80.0" y="-52.5" />
+      <point x="1477.2528628361933" y="76.0" />
+      <point x="2128.088563593769" y="76.0" />
+      <point x="-104.625" y="28.0" />
+    </edge>
+    <edge source="Graph" target="Edge">
+      <point x="-47.454545454545496" y="-197.5" />
+      <point x="1885.1348916118427" y="1476.0" />
+      <point x="1862.0894370663882" y="1476.0" />
+      <point x="1862.0894370663882" y="1306.0" />
+      <point x="1289.8394370663882" y="1306.0" />
+      <point x="62.25" y="137.0" />
+    </edge>
+    <edge source="DFS" target="Attribute">
+      <point x="87.38461538461524" y="-100.5" />
+      <point x="3310.1326923076917" y="2381.0" />
+      <point x="3236.7019589934903" y="2381.0" />
+      <point x="3236.7019589934903" y="280.0" />
+      <point x="1064.6469600584153" y="280.0" />
+      <point x="106.22222222222217" y="77.0" />
+    </edge>
+    <edge source="DFS" target="DfsConfig">
+      <point x="-87.38461538461539" y="-100.5" />
+      <point x="3135.363461538461" y="2461.0" />
+      <point x="2609.255569816183" y="2461.0" />
+      <point x="93.75" y="124.5" />
+    </edge>
+    <edge source="BaseGraphObject" target="AttributeNotFondException">
+      <point x="113.0" y="-137.5" />
+      <point x="0.0" y="52.5" />
+    </edge>
+    <edge source="VesitLang" target="EvalListener">
+      <point x="-46.74999999999977" y="-100.0" />
+      <point x="2276.7446453997213" y="4109.0" />
+      <point x="1284.0894370663882" y="4109.0" />
+      <point x="-143.0" y="749.0" />
+    </edge>
+    <edge source="DFS" target="VesitLang">
+      <point x="94.66666666666674" y="100.5" />
+      <point x="3317.414743589743" y="4169.0" />
+      <point x="2482.444645399721" y="4169.0" />
+      <point x="158.95000000000005" y="-100.0" />
+    </edge>
+    <edge source="EvalListener" target="GraphType">
+      <point x="143.0" y="-749.0" />
+      <point x="1570.0894370663882" y="2491.0" />
+      <point x="2113.386312066388" y="2491.0" />
+      <point x="15.5" y="40.0" />
+    </edge>
+    <edge source="EvalListener" target="Node">
+      <point x="-11.0" y="-749.0" />
+      <point x="1416.0894370663882" y="2391.0" />
+      <point x="1373.5894370663882" y="2391.0" />
+      <point x="1373.5894370663882" y="972.0" />
+      <point x="1737.1016749025812" y="972.0" />
+      <point x="-21.65625" y="88.5" />
     </edge>
     <edge source="EvalListener" target="Graph">
-      <point x="-28.295454545454504" y="-196.0" />
-      <point x="435.9795202020202" y="995.0" />
-      <point x="341.0504797979797" y="995.0" />
-      <point x="0.0" y="88.5" />
+      <point x="99.0" y="-749.0" />
+      <point x="1526.0894370663882" y="2471.0" />
+      <point x="1932.5894370663882" y="2471.0" />
+      <point x="0.0" y="197.5" />
+    </edge>
+    <edge source="Prim" target="BaseGraphObject">
+      <point x="-97.70833333333348" y="-173.0" />
+      <point x="69.79166666666652" y="2551.0" />
+      <point x="78.25" y="2551.0" />
+      <point x="78.25" y="645.0" />
+      <point x="1295.9403628361933" y="645.0" />
+      <point x="-148.3125" y="137.5" />
+    </edge>
+    <edge source="Prim" target="Node">
+      <point x="-41.875" y="-173.0" />
+      <point x="125.625" y="2541.0" />
+      <point x="100.25" y="2541.0" />
+      <point x="100.25" y="922.0" />
+      <point x="1664.9141749025812" y="922.0" />
+      <point x="-93.84375" y="88.5" />
+    </edge>
+    <edge source="Kruskal" target="Edge">
+      <point x="-30.72727272727252" y="-173.0" />
+      <point x="493.2727272727275" y="2481.0" />
+      <point x="325.364174902581" y="2481.0" />
+      <point x="325.364174902581" y="1336.0" />
+      <point x="1140.439437066388" y="1336.0" />
+      <point x="-87.15000000000009" y="137.0" />
+    </edge>
+    <edge source="VesitLang" target="BFS">
+      <point x="28.050000000000182" y="-100.0" />
+      <point x="2351.5446453997215" y="4099.0" />
+      <point x="2599.7019589934903" y="4099.0" />
+      <point x="0.0" y="100.5" />
+    </edge>
+    <edge source="Graphviz" target="GraphType">
+      <point x="0.0" y="-125.5" />
+      <point x="2968.2019589934903" y="2011.0" />
+      <point x="2996.386312066388" y="2011.0" />
+      <point x="2996.386312066388" y="1486.0" />
+      <point x="2144.386312066388" y="1486.0" />
+      <point x="46.5" y="40.0" />
+    </edge>
+    <edge source="VesitLang" target="DFS">
+      <point x="121.55000000000041" y="-100.0" />
+      <point x="2445.0446453997215" y="4149.0" />
+      <point x="3128.08141025641" y="4149.0" />
+      <point x="-94.66666666666667" y="100.5" />
+    </edge>
+    <edge source="Graph" target="BaseGraphObjectNotFoundException">
+      <point x="-94.90909090909099" y="-197.5" />
+      <point x="1837.6803461572972" y="1476.0" />
+      <point x="1673.5894370663882" y="1476.0" />
+      <point x="96.5" y="28.0" />
+    </edge>
+    <edge source="Prim" target="Edge">
+      <point x="-13.958333333333485" y="-173.0" />
+      <point x="153.54166666666652" y="2531.0" />
+      <point x="111.25" y="2531.0" />
+      <point x="111.25" y="1326.0" />
+      <point x="1115.539437066388" y="1326.0" />
+      <point x="-112.05000000000018" y="137.0" />
+    </edge>
+    <edge source="EvalListener" target="BaseGraphObjectNotFoundException">
+      <point x="11.0" y="-749.0" />
+      <point x="1438.0894370663882" y="2431.0" />
+      <point x="1480.5894370663882" y="2431.0" />
+      <point x="-96.5" y="28.0" />
+    </edge>
+    <edge source="BFS" target="Graphviz">
+      <point x="101.14999999999998" y="-100.5" />
+      <point x="2700.8519589934904" y="2541.0" />
+      <point x="2799.0352923268238" y="2541.0" />
+      <point x="-169.16666666666669" y="125.5" />
+    </edge>
+    <edge source="Kruskal" target="BaseGraphObject">
+      <point x="-92.18181818181802" y="-173.0" />
+      <point x="431.818181818182" y="2501.0" />
+      <point x="303.364174902581" y="2501.0" />
+      <point x="303.364174902581" y="655.0" />
+      <point x="1338.3153628361933" y="655.0" />
+      <point x="-105.9375" y="137.5" />
+    </edge>
+    <edge source="BaseGraphObject" target="Attribute">
+      <point x="0.0" y="-137.5" />
+      <point x="1444.2528628361933" y="310.0" />
+      <point x="1011.5358489473044" y="310.0" />
+      <point x="53.11111111111131" y="77.0" />
+    </edge>
+    <edge source="DFS" target="Node">
+      <point x="65.53846153846143" y="-100.5" />
+      <point x="3288.286538461538" y="2391.0" />
+      <point x="3225.7019589934903" y="2391.0" />
+      <point x="3225.7019589934903" y="892.0" />
+      <point x="1867.0391749025812" y="892.0" />
+      <point x="108.28125" y="88.5" />
+    </edge>
+    <edge source="Graph" target="Node">
+      <point x="0.0" y="-197.5" />
+      <point x="1932.5894370663882" y="942.0" />
+      <point x="1794.8516749025812" y="942.0" />
+      <point x="36.09375" y="88.5" />
+    </edge>
+    <edge source="Graphviz" target="GraphException">
+      <point x="135.33333333333348" y="-125.5" />
+      <point x="3103.5352923268238" y="2011.0" />
+      <point x="3067.7722364828496" y="2011.0" />
+      <point x="3067.7722364828496" y="290.0" />
+      <point x="2639.416688593769" y="290.0" />
+      <point x="59.249999999999886" y="28.0" />
+    </edge>
+    <edge source="VesitLang" target="Graphviz">
+      <point x="84.15000000000032" y="-100.0" />
+      <point x="2407.6446453997214" y="4129.0" />
+      <point x="2989.1055698161827" y="4129.0" />
+      <point x="2989.1055698161827" y="2551.0" />
+      <point x="2934.368625660157" y="2551.0" />
+      <point x="-33.833333333333485" y="125.5" />
+    </edge>
+    <edge source="VesitLang" target="ShowImage">
+      <point x="177.65000000000032" y="-100.0" />
+      <point x="2501.1446453997214" y="4179.0" />
+      <point x="3511.2480769230765" y="4179.0" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="VesitLangCli" target="VesitLang">
+      <point x="2.2737367544323206E-13" y="-64.5" />
+      <point x="0.0" y="100.0" />
+    </edge>
+    <edge source="BfsConfig" target="ActionConfig">
+      <point x="0.0" y="-148.5" />
+      <point x="2266.505569816183" y="2011.0" />
+      <point x="2300.6" y="2011.0" />
+      <point x="0.0" y="64.0" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.5000000000000001" x="663.5952380952372" y="786.0" />
-  <SelectedNodes />
+  <settings layout="Hierarchic Group" zoom="0.20000000000000015" x="1229.9999999999982" y="897.4999999999993" />
+  <SelectedNodes>
+    <node>EvalListener</node>
+  </SelectedNodes>
   <Categories>
     <Category>Fields</Category>
     <Category>Constructors</Category>
     <Category>Properties</Category>
+    <Category>Methods</Category>
   </Categories>
   <SCOPE>All</SCOPE>
   <VISIBILITY>private</VISIBILITY>
