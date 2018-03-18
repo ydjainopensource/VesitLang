@@ -36,7 +36,10 @@ public class Kruskal {
 
         Set<Edge> edges = new TreeSet<>(new WeightComparator());
         edges.addAll(getGraph().getEdgeList());
-        Set<Node> visited = new HashSet<>();
+
+
+        UnionFind uf = new UnionFind(graph);
+
         Set<Node> node = new TreeSet<>(Comparator.comparing(BaseGraphObject::getId));
         node.addAll(getGraph().getNodeList());
 
@@ -44,7 +47,6 @@ public class Kruskal {
 
         for (Node n : node){
             n.removeAllAttributes();
-//            n.addAttribute(new Attribute("style","filled"));
         }
 
         Node toNode = null,fromNode =null;
@@ -56,52 +58,42 @@ public class Kruskal {
             toNode = currentEdge.getToNode();
             fromNode = currentEdge.getFromNode();
 
-            if( (!visited.contains(fromNode))
-                || (!visited.contains(toNode)) ) {
-
-                visited.add(toNode);
-                visited.add(fromNode);
-
-                System.out.println(fromNode +"\t" + toNode);
-
-                currentEdge.addAttributes(currentEdgeAttributes);
-
-                fromNode.removeAllAttributes();
-                toNode.removeAllAttributes();
-
-                fromNode.addAttributes(currentNodeAttributes);
-                toNode.addAttributes(currentNodeAttributes);
-
-//                assert !(toNode.equals(fromNode));
-
-                VesitLang.genImageAndPdf(getGraph(),kruskalConfig);
-
-                currentEdge.removeAttributes(currentEdgeAttributes);
-                currentEdge.addAttributes(visitedEdgeAttributes);
-
-                fromNode.removeAllAttributes();
-                toNode.removeAllAttributes();
-
-                fromNode.addAttributes(visitedNodeAttributes);
-                toNode.addAttributes(visitedNodeAttributes);
-
-
+            if (uf.connected(fromNode, toNode)) {
+                continue;
             }
+
+            fromNode.removeAllAttributes();
+            toNode.removeAllAttributes();
+
+            fromNode.addAttributes(currentNodeAttributes);
+            toNode.addAttributes(currentNodeAttributes);
+
+            currentEdge.addAttributes(currentEdgeAttributes);
+
+
+            VesitLang.genImageAndPdf(getGraph(),kruskalConfig);
+
+            currentEdge.removeAttributes(currentEdgeAttributes);
+            currentEdge.addAttributes(visitedEdgeAttributes);
+
+            fromNode.removeAllAttributes();
+            toNode.removeAllAttributes();
+
+            fromNode.addAttributes(visitedNodeAttributes);
+            toNode.addAttributes(visitedNodeAttributes);
+
+            uf.union(fromNode, toNode);
+        }
+        VesitLang.genImageAndPdf(getGraph(),kruskalConfig);
+        for (Edge ed:edges) {
+            ed.removeAttributes(visitedEdgeAttributes);
+            ed.removeAttributes(currentEdgeAttributes);
+        }
+        for(Node n : graph.getNodeList()){
+            n.removeAllAttributes();
         }
 
-        toNode.removeAttributes(currentNodeAttributes);
-        fromNode.removeAttributes(currentNodeAttributes);
-        toNode.addAttributes(visitedNodeAttributes);
-        fromNode.addAttributes(visitedNodeAttributes);
-        e.removeAttributes(currentEdgeAttributes);
-        e.removeAttributes(visitedEdgeAttributes);
-
-        VesitLang.genImageAndPdf(getGraph(),kruskalConfig);
-
-        for(Edge edge :edges) edge.removeAttributes(visitedEdgeAttributes);
-
-
-
+//        getGraph().
     }
 
     private void loadAttributes() {
