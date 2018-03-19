@@ -4,7 +4,8 @@ import java.util.*;
 public class Prim {
 
     // prim config to store node clors values etc.
-    private PrimConfig primConfig = new PrimConfig();
+//    private PrimConfig primConfig = new PrimConfig();
+    private PrimConfig primConfig;
 
     // grpah object to store the internal representation of graphs
     private Graph graph;
@@ -46,16 +47,17 @@ public class Prim {
      */
     void mst(){
 
+        System.out.println("In prims");
         loadAttributes();
 
-        Set<Edge> edges = new TreeSet<>(new WeightComparator());
-        edges.addAll(getGraph().getEdgeList());
+        PriorityQueue<Edge> edges = new PriorityQueue<>(new WeightComparator());
+//        edges.addAll(getGraph().getEdgeList());
 
         Set<Node> node = new TreeSet<>(Comparator.comparing(BaseGraphObject::getId));
         node.addAll(getGraph().getNodeList());
 
-        getGraph().setEdgeList(edges);
-        getGraph().setNodeList(node);
+//        getGraph().setEdgeList(edges);
+//        getGraph().setNodeList(node);
 
         for (Node n : node){ n.removeAllAttributes();}
 
@@ -63,83 +65,70 @@ public class Prim {
 
         Iterator<Node> nodeIterator = node.iterator();
         Node currentNode = nodeIterator.next();
-        Node previousNode = new Node("");
+        for(Edge e : getGraph().getEdgeList()){
+            if(e.getToNode().equals(currentNode) || e.getFromNode().equals(currentNode))
+                edges.add(e);
+        }
 
-        boolean changed = false;
+        while (edges.size()!=0){
 
-        while(node.size() != visited.size()){
-            changed =false;
+            Edge tempEdge = edges.poll();
+            Edge currentEdge =null;
+            for( Edge e : getGraph().getEdgeList()){
+                if(e.equals(tempEdge))
+                    currentEdge = e;
+            }
 
-            System.out.println("previousNode " + previousNode + " currentNode " + currentNode);
-//            genImageAndPdf(getGraph());
+            Node fromNode = currentEdge.getFromNode();
+            Node toNode = currentEdge.getToNode();
+            if(!visited.contains(fromNode) || !visited.contains(toNode)){
+                for (Edge e : getGraph().getEdgeList()){
+                    if(!visited.contains(fromNode)){
+                        if( (e.getFromNode().equals(fromNode) && !visited.contains(e.getToNode()))
+                                || (e.getToNode().equals(fromNode) && !visited.contains(e.getFromNode())))
+                             edges.add(e);
+                    }
+                    if(!visited.contains(toNode)){
+                        if((e.getFromNode().equals(toNode) && !visited.contains(e.getToNode()))
+                                || (e.getToNode().equals(toNode) && !visited.contains(e.getFromNode())))
+                            edges.add(e);
+                    }
+                }
 
-//            Set<Edge> nodeEdges = new TreeSet<>(new WeightComparator());
+                visited.add(fromNode);
+                visited.add(toNode);
 
-            Edge minEdge =null;
-            for (Edge e : edges)
-                if(e.getFromNode().equals(currentNode) && !visited.contains(e.getToNode()))
-                    if(minEdge == null || minEdge.getWeight() > e.getWeight())
-                        minEdge =e;
+                fromNode.removeAllAttributes();
+                toNode.removeAllAttributes();
+//                currentEdge.removeAttribute("color");
+//                currentEdge.removeAttribute("penwidth");
 
-            if(minEdge !=null) {
-//                genImageAndPdf(getGraph());
-                minEdge.addAttributes(currentEdgeAttributes);
-                currentNode.addAttributes(currentNodeAttributes);
-                Node toNode = minEdge.getToNode();
+                fromNode.addAttributes(currentNodeAttributes);
+                toNode.addAttributes(currentNodeAttributes);
+                currentEdge.addAttribute(new Attribute("penwidth", primConfig.getCurrentEdgeWidth()));
+                currentEdge.addAttribute(new Attribute("color", primConfig.getCurrentEdgeColor()));
 
-//                toNode.addAttributes(currentNodeAttributes);
-                toNode.removeAttributes(currentNodeAttributes);
-
-                currentNode.removeAttributes(currentNodeAttributes);
-
-                toNode.addAttributes(visitedNodeAttributes);
-                currentNode.addAttributes(visitedNodeAttributes);
 
                 VesitLang.genImageAndPdf(getGraph(),primConfig);
 
-                minEdge.removeAttributes(currentEdgeAttributes);
-                minEdge.addAttributes(visitedEdgeAttributes);
+                fromNode.removeAllAttributes();
+                toNode.removeAllAttributes();
+                currentEdge.removeAttribute("color");
+                currentEdge.removeAttribute("penwidth");
 
-                changed = true;
-
-                visited.add(currentNode);
-                visited.add(previousNode);
-                previousNode = currentNode;
-                currentNode = toNode;
-            }
-            if(!changed)
-                try{
-                    visited.add(currentNode);
-                    currentNode.removeAttributes(currentNodeAttributes);
-                    currentNode.addAttributes(visitedNodeAttributes);
-
-                    VesitLang.genImageAndPdf(getGraph(),primConfig);
-
-                    for (Node node1 : node)
-                    {
-                        if(!visited.contains(node1)) {
-                            currentNode.removeAttributes(currentNodeAttributes);
-                            currentNode.addAttributes(visitedNodeAttributes);
-                            visited.add(currentNode);
-                            currentNode = node1;
-//                            System.err.println("l114 "+ node1);
-                            currentNode.addAttributes(currentNodeAttributes);
-                            VesitLang.genImageAndPdf(getGraph(),primConfig);
-                        }
-                    }
-
-
-                }catch (Exception e){
-                    break;
-                }
+                fromNode.addAttributes(visitedNodeAttributes);
+                toNode.addAttributes(visitedNodeAttributes);
+                currentEdge.addAttributes(visitedEdgeAttributes);
+                currentEdge.addAttribute(new Attribute("penwidth", primConfig.getVisitedEdgeWidth()));
+                currentEdge.addAttribute(new Attribute("color",primConfig.getVisitedEdgeColor()));            }
         }
-        currentNode.removeAttributes(currentNodeAttributes);
-        currentNode.addAttributes(visitedNodeAttributes);
+
         VesitLang.genImageAndPdf(getGraph(),primConfig);
-
         for (Node n : graph.getNodeList()) n.removeAllAttributes();
-        for (Edge edge: graph.getEdgeList()) edge.removeAttributes(visitedEdgeAttributes);
-
+        for (Edge edge: graph.getEdgeList()) {
+            edge.removeAttributes(visitedEdgeAttributes);
+            edge.removeAttributes(currentEdgeAttributes);
+        }
     }
 
 
@@ -167,7 +156,7 @@ public class Prim {
      */
     private void LoadVisitedEdgeAttributes() {
         visitedEdgeAttributes.add(new Attribute("penwidth", primConfig.getVisitedEdgeWidth()));
-        visitedEdgeAttributes.add(new Attribute("color",primConfig.getVisitedNodeColor()));
+        visitedEdgeAttributes.add(new Attribute("color",primConfig.getVisitedEdgeColor()));
     }
 
     /**

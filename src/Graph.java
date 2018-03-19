@@ -33,7 +33,7 @@ public class Graph extends BaseGraphObject {
         super(id);
         this.graphType = graphType;
         this.nodeList = new TreeSet<>(Comparator.comparing(Node ::getId));
-        this.edgeList = new TreeSet<>(Comparator.comparing(Edge::getWeight));
+        this.edgeList = new TreeSet<>(new WeightComparator());
         this.subgraphList = new ArrayList<>();
     }
 

@@ -16,7 +16,7 @@ kruskal : KRUSKAL '{' kruskalproperties* '}'
         | KRUSKAL
         ;
 
-prim    : PRIM '{' primproperties '}'
+prim    : PRIM '{' primproperties* '}'
         | PRIM
         ;
 

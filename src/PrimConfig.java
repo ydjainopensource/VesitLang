@@ -5,10 +5,10 @@
  */
 public class PrimConfig implements ActionConfig {
 
-    private String currentEdgeColor = "red";
+    private String currentEdgeColor = "blue";
     private String currentEdgeWidth = "3";
-    private String visitedEdgeWidth = "1";
-    private String visitedEdgeColor = "blue";
+    private String visitedEdgeWidth = "2";
+    private String visitedEdgeColor = "khaki";
     private String visitedNodeColor = "grey60";
     private String currentNodeColor = "red";
     private String currentNodeShape = "Mdiamond";
@@ -114,5 +114,23 @@ public class PrimConfig implements ActionConfig {
 
     public void setVisitedEdgeColor(String visitedEdgeColor) {
         this.visitedEdgeColor = visitedEdgeColor;
+    }
+
+    @Override
+    public String toString() {
+        return "PrimConfig{" +
+                "currentEdgeColor='" + currentEdgeColor + '\'' +
+                ", currentEdgeWidth='" + currentEdgeWidth + '\'' +
+                ", visitedEdgeWidth='" + visitedEdgeWidth + '\'' +
+                ", visitedEdgeColor='" + visitedEdgeColor + '\'' +
+                ", visitedNodeColor='" + visitedNodeColor + '\'' +
+                ", currentNodeColor='" + currentNodeColor + '\'' +
+                ", currentNodeShape='" + currentNodeShape + '\'' +
+                ", visitedNodeShape='" + visitedNodeShape + '\'' +
+                ", dpi='" + dpi + '\'' +
+                ", outImageDir='" + outImageDir + '\'' +
+                ", pptName='" + pptName + '\'' +
+                ", iterNumber=" + iterNumber +
+                '}';
     }
 }

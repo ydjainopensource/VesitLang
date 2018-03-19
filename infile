@@ -1,9 +1,9 @@
 graph  {
-    from a to b cost 34
     from b to e cost 100
+    from a to b cost 34
     from a to c cost 123
     from a to d cost 456
-    from e to f cost 4
+    from e to f cost 400
     from d to e cost 789
  }
  bfs a {
@@ -11,6 +11,7 @@ graph  {
      bfsQueuedNodeShape=square
      bfsOutImageDir=imagesBfs/
      bfsPptName=c.pdf
+     bfsDpi=600
  }
  dfs a {
      dfsStackNodeColor=khaki
@@ -18,10 +19,3 @@ graph  {
      dfsOutImageDir=imagesDfs/
      dfsPptName=d.pdf
  }
- kruskal {
-   kruskalOutImageDir=imagesKruskal/
-   kruskalPptName = k.pdf
- }
- prim{
-    primOutImageDir=imagesPrim/
-}

@@ -37,24 +37,8 @@ public class EvalListener extends VesitLangBaseListener {
         this.prim = prim;
     }
 
-    public void setBfsConfig(BfsConfig bfsConfig) {
-        this.bfsConfig = bfsConfig;
-    }
-
-    public void setDfsConfig(DfsConfig dfsConfig) {
-        this.dfsConfig = dfsConfig;
-    }
-
-    public void setKruskalConfig(KruskalConfig kruskalConfig) {
-        this.kruskalConfig = kruskalConfig;
-    }
-
     public PrimConfig getPrimConfig() {
         return primConfig;
-    }
-
-    public void setPrimConfig(PrimConfig primConfig) {
-        this.primConfig = primConfig;
     }
 
     public boolean isBfs() {
@@ -153,7 +137,7 @@ public class EvalListener extends VesitLangBaseListener {
     @Override
     public void enterGraph(VesitLangParser.GraphContext ctx) {
         System.out.println("in enter graph" );
-        graph = new Graph("g1", GraphType.DIGRAPH);
+        graph = new Graph("g1", GraphType.GRPAH);
     }
 
     public Node getDfsStartNode() {
@@ -391,7 +375,8 @@ public class EvalListener extends VesitLangBaseListener {
 
     @Override
     public void enterPrimPptName(VesitLangParser.PrimPptNameContext ctx) {
-        primConfig.setPptName(ctx.STRING().toString());
+        String filename = ctx.STRING().get(0).toString() +"." + ctx.STRING().get(1).toString();
+        primConfig.setPptName(filename);
     }
 
     @Override
@@ -412,6 +397,7 @@ public class EvalListener extends VesitLangBaseListener {
     @Override
     public void enterPrimVisitedEdgeColor(VesitLangParser.PrimVisitedEdgeColorContext ctx) {
         primConfig.setVisitedEdgeColor(ctx.STRING().toString());
+        System.err.println(primConfig.getVisitedEdgeColor());
     }
 
     @Override

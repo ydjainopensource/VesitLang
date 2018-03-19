@@ -1,3 +1,4 @@
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -7,9 +8,28 @@ import java.util.Objects;
  * Created by frank on 2014/11/20.
  * Modified by Yash  
  */
-public class Attribute {
+public class Attribute implements Comparable{
     private String attrName;
     private String attrValue;
+
+    @Override
+    public String toString() {
+        return "Attribute{" +
+                "attrName='" + attrName + '\'' +
+                ", attrValue='" + attrValue + '\'' +
+                '}';
+    }
+
+    @Override
+    public int compareTo(Object o) {
+
+        if (o instanceof Attribute){
+            Attribute that = (Attribute) o;
+            return this.attrName.compareTo(that.attrName);
+        }
+
+        return 0;
+    }
 
     @Override
     public boolean equals(Object o) {

@@ -175,9 +175,12 @@ public class VesitLang {
         // Prim
         if (elistener.isPrim()) {
             Prim prim = new Prim();
-            prim.loadPrimConfig(new PrimConfig());
+            prim.loadPrimConfig(elistener.getPrimConfig());
+//            prim.loadPrimConfig(new PrimConfig());
             prim.setGraph(elistener.getGraph());
             prim.mst();
+            System.err.println(elistener.getPrimConfig());
+
         }
 
         // Kruskal

@@ -3,9 +3,9 @@
  */
 
 public interface ActionConfig {
-    public String getOutImageDir();
-    public int getIterNumber();
-    public void setIterNumber(int i);
-    public String getPptName();
-    public String getDpi();
+    String getOutImageDir();
+    int getIterNumber();
+    void setIterNumber(int i);
+    String getPptName();
+    String getDpi();
 }
