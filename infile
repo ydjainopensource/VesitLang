@@ -6,16 +6,16 @@ graph  {
     from e to f cost 400
     from d to e cost 789
  }
- bfs a {
-     bfsQueuedNodeColor=khaki
-     bfsQueuedNodeShape=square
-     bfsOutImageDir=imagesBfs/
-     bfsPptName=c.pdf
-     bfsDpi=600
- }
- dfs a {
-     dfsStackNodeColor=khaki
-     dfsStackNodeShape=square
-     dfsOutImageDir=imagesDfs/
-     dfsPptName=d.pdf
- }
+bfs a {
+    bfsQueuedNodeColor=khaki
+    bfsQueuedNodeShape=square
+    bfsOutImageDir=imagesBfs/
+    bfsPptName=c.pdf
+    bfsDpi=100
+}
+dfs a {
+    dfsStackNodeColor=khaki
+    dfsStackNodeShape=square
+    dfsOutImageDir=imagesDfs/
+    dfsPptName=d.pdf
+}

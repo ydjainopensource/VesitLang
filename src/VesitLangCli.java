@@ -23,7 +23,7 @@ public class VesitLangCli {
         String[] aargs = {"-v","infile" };
 
         // Initialize picocli
-        VesitLangCli vesitLangCli = CommandLine.populateCommand(new VesitLangCli(), aargs);
+        VesitLangCli vesitLangCli = CommandLine.populateCommand(new VesitLangCli(), args);
 
         // help requested
         if(usageHelpRequested){
@@ -33,20 +33,20 @@ public class VesitLangCli {
 
 
         // By default don't output anything
-//        String IROutName = "/dev/null";
-//        System.setOut(new PrintStream(new FileOutputStream(IROutName)));
-//
-//        if(verbose){
-//            System.err.println("Outputting logs to <filename>.log");
-//        }
+        String IROutName = "/dev/null";
+        System.setOut(new PrintStream(new FileOutputStream(IROutName)));
+
+        if(verbose){
+            System.err.println("Outputting logs to <filename>.log");
+        }
 
 
         for (File inputFile: inputFiles) {
-//            if(verbose) {
-//                IROutName = inputFile.getName() + ".log";
-//                FileOutputStream IRout = new FileOutputStream(IROutName);
-//                System.setOut(new PrintStream(IRout));
-//            }
+            if(verbose) {
+                IROutName = inputFile.getName() + ".log";
+                FileOutputStream IRout = new FileOutputStream(IROutName);
+                System.setOut(new PrintStream(IRout));
+            }
 
             System.out.println("Started Processing file : " + inputFile.getName());
             VesitLang.processFile(new FileInputStream(inputFile));

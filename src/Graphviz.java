@@ -95,7 +95,7 @@ public class Graphviz {
         File temp ;
         try {
             temp = File.createTempFile("graph_", ".dot.tmp", new File(Graphviz.TMP_PATH));
-            System.err.println(str);
+//            System.err.println(str);
             FileWriter fout = new FileWriter(temp);
             fout.write(str);
             fout.close();
